@@ -5,7 +5,7 @@
     --card-bg: #121212;
     --text-main: #ffffff;
     --text-dim: #999;
-    --round: 24px; /* Мягкие скругления */
+    --round: 24px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,7 +23,6 @@ h1, h2, h3, .logo { font-family: 'Unbounded', sans-serif; text-transform: upperc
 
 .container { max-width: 1000px; margin: 0 auto; padding: 0 25px; }
 
-/* Подсветка за курсором */
 .cursor-glow {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -31,7 +30,6 @@ h1, h2, h3, .logo { font-family: 'Unbounded', sans-serif; text-transform: upperc
     pointer-events: none; z-index: 0;
 }
 
-/* Header */
 header {
     position: fixed; width: 100%; top: 0; z-index: 1000;
     background: rgba(8, 8, 8, 0.7);
@@ -61,90 +59,51 @@ nav a:hover { color: var(--gold); }
     border: 1px solid rgba(255, 215, 0, 0.3);
 }
 
-/* Hero */
-.hero {
-    padding: 180px 0 100px;
-    text-align: center; position: relative;
-}
-
-.hero-circle {
-    position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
-    z-index: -1;
-}
-
-.badge {
-    display: inline-block; padding: 6px 16px; border-radius: 100px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 12px; color: var(--gold); margin-bottom: 25px;
-}
-
+.hero { padding: 180px 0 100px; text-align: center; position: relative; }
+.hero-circle { position: absolute; top: -10%; left: 50%; transform: translateX(-50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%); z-index: -1; }
+.badge { display: inline-block; padding: 6px 16px; border-radius: 100px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); font-size: 12px; color: var(--gold); margin-bottom: 25px; }
 .hero h1 { font-size: clamp(32px, 8vw, 64px); line-height: 1.1; margin-bottom: 25px; }
 .gold-text { color: var(--gold); }
-
 .hero p { color: var(--text-dim); max-width: 550px; margin: 0 auto 40px; font-size: 18px; }
-
-/* Кнопки */
 .hero-group { display: flex; justify-content: center; gap: 15px; }
-
-.btn-primary {
-    background: var(--gold); color: #000; padding: 18px 35px;
-    border-radius: var(--round); text-decoration: none; font-weight: 800;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
+.btn-primary { background: var(--gold); color: #000; padding: 18px 35px; border-radius: var(--round); text-decoration: none; font-weight: 800; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 .btn-primary:hover { transform: scale(1.03) translateY(-3px); box-shadow: 0 15px 30px rgba(255, 215, 0, 0.2); }
+.btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; padding: 18px 35px; border-radius: var(--round); text-decoration: none; font-weight: 800; border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s; }
 
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.05); color: #fff; padding: 18px 35px;
-    border-radius: var(--round); text-decoration: none; font-weight: 800;
-    border: 1px solid rgba(255, 255, 255, 0.1); transition: 0.3s;
-}
-
-.btn-secondary:hover { background: rgba(255, 255, 255, 0.1); }
-
-/* Карточка Турнира */
+/* ТУРНИРНАЯ КАРТОЧКА */
 .section { padding: 80px 0; }
 .section-head h2 { font-size: 20px; color: var(--text-dim); margin-bottom: 40px; text-align: center; }
-
-.card-main {
-    background: var(--card-bg); border-radius: var(--round);
-    padding: 50px; position: relative; overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
+.card-main { background: var(--card-bg); border-radius: var(--round); padding: 50px; position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
 .card-header { display: flex; justify-content: space-between; margin-bottom: 30px; }
 .tag { color: var(--gold); font-weight: 800; font-size: 12px; text-transform: uppercase; }
 .mode { color: var(--text-dim); font-size: 12px; }
-
 .card-main h3 { font-size: 32px; margin-bottom: 40px; }
 
+/* Стилизация призового блока с иконкой */
 .grid-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
 .stat-box p { color: var(--text-dim); font-size: 13px; margin-bottom: 8px; }
 .stat-box span { font-size: 24px; font-weight: 700; font-family: 'Unbounded'; }
 
-.card-btn {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    background: rgba(255, 215, 0, 0.1); color: var(--gold);
-    text-decoration: none; padding: 22px; border-radius: 18px;
-    font-weight: 800; transition: 0.3s; border: 1px solid rgba(255, 215, 0, 0.2);
+.prize-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Отступ между картинкой и цифрами */
 }
 
+.gold-icon {
+    width: 48px; /* Оптимальный размер иконки */
+    height: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); /* Мягкое свечение голды */
+}
+
+.card-btn { display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(255, 215, 0, 0.1); color: var(--gold); text-decoration: none; padding: 22px; border-radius: 18px; font-weight: 800; transition: 0.3s; border: 1px solid rgba(255, 215, 0, 0.2); }
 .card-btn:hover { background: var(--gold); color: #000; }
 
-/* Новости */
+/* НОВОСТИ */
 .news-list { display: flex; flex-direction: column; gap: 15px; }
-
-.news-card {
-    background: rgba(255, 255, 255, 0.02); border-radius: 20px;
-    padding: 30px 40px; display: flex; justify-content: space-between; align-items: center;
-    text-decoration: none; transition: 0.4s; border: 1px solid transparent;
-}
-
+.news-card { background: rgba(255, 255, 255, 0.02); border-radius: 20px; padding: 30px 40px; display: flex; justify-content: space-between; align-items: center; text-decoration: none; transition: 0.4s; border: 1px solid transparent; }
 .news-card:hover { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 215, 0, 0.2); transform: translateX(10px); }
-
 .news-tag { color: var(--gold); font-size: 11px; font-weight: 800; margin-bottom: 8px; display: block; }
 .news-info h4 { font-size: 18px; margin-bottom: 5px; }
 .news-info p { color: var(--text-dim); font-size: 14px; }
