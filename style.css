@@ -91,8 +91,8 @@ nav a:hover { color: var(--gold); }
 }
 
 .gold-icon {
-    width: 48px; /* Оптимальный размер иконки */
-    height: 48px;
+    width: 28px; /* Оптимальный размер иконки */
+    height: 28px;
     object-fit: contain;
     filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.3)); /* Мягкое свечение голды */
 }
@@ -120,3 +120,4 @@ footer { padding: 60px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     .grid-stats { grid-template-columns: 1fr; }
     .hero h1 { font-size: 38px; }
 }
+
