@@ -83,8 +83,8 @@ nav a:hover { color: var(--gold); }
 /* Фикс иконки для хостинга */
 .prize-wrapper { display: flex; align-items: center; gap: 10px; }
 .gold-icon { 
-    width: 32px !important; 
-    height: 32px !important; 
+    width: 48px !important; 
+    height: 48px !important; 
     min-width: 32px !important; 
     object-fit: contain; 
     display: inline-block;
@@ -115,3 +115,4 @@ footer { padding: 60px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     .hero h1 { font-size: 38px; }
     .card-main { padding: 30px; }
 }
+
