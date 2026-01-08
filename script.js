@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Анимация появления при скролле
-    const options = { threshold: 0.2 };
+    const options = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.animate([
-                    { opacity: 0, transform: 'translateY(30px) scale(0.98)' },
-                    { opacity: 1, transform: 'translateY(0) scale(1)' }
+                    { opacity: 0, transform: 'translateY(20px)' },
+                    { opacity: 1, transform: 'translateY(0)' }
                 ], {
-                    duration: 800,
+                    duration: 700,
                     easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
                     fill: 'forwards'
                 });
