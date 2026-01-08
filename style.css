@@ -85,7 +85,7 @@ nav a:hover { color: var(--gold); }
 .gold-icon { 
     width: 48px !important; 
     height: 48px !important; 
-    min-width: 32px !important; 
+    min-width: 48px !important; 
     object-fit: contain; 
     display: inline-block;
     filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.3));
@@ -115,4 +115,5 @@ footer { padding: 60px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); }
     .hero h1 { font-size: 38px; }
     .card-main { padding: 30px; }
 }
+
 
