@@ -1,0 +1,389 @@
+:root {
+    --gold: #FFD700;
+    --gold-glow: rgba(255, 215, 0, 0.3);
+    --bg: #0a0a0a;
+    --card: #141414;
+    --border: rgba(255, 255, 255, 0.1);
+    --text: #ffffff;
+    --text-dim: #888;
+    --cubic-smooth: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+
+/* Свечение курсора */
+.cursor-glow {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header */
+.stats-header { padding: 30px 0; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+.nav-row { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Unbounded'; font-weight: 700; font-size: 20px; letter-spacing: 1px; }
+.logo span { color: var(--gold); }
+nav a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 20px; transition: 0.3s; }
+nav a:hover { color: var(--gold); }
+.tg-badge { background: rgba(255, 215, 0, 0.1); color: var(--gold) !important; padding: 8px 16px; border-radius: 100px; font-weight: 800; }
+
+/* Grid Layout */
+.top-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 380px; 
+    gap: 30px; 
+    margin-bottom: 40px; 
+    align-items: start;
+}
+
+.block-title { font-family: 'Unbounded'; font-size: 13px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 20px; letter-spacing: 2px; }
+
+/* Таблица лидеров */
+.stats-card { 
+    background: var(--card); 
+    border-radius: 24px; 
+    border: 1px solid var(--border); 
+    overflow: hidden; 
+}
+
+.team-row { display: flex; align-items: center; padding: 15px 25px; border-bottom: 1px solid var(--border); transition: background 0.3s ease; }
+.team-row:last-child { border: none; }
+.team-row:hover { background: rgba(255, 255, 255, 0.02); }
+.pos { width: 35px; font-weight: 800; color: var(--gold); font-size: 16px; }
+
+.logo-wrapper { width: 32px; height: 32px; margin-right: 15px; background: #1a1a1a; border-radius: 8px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border); }
+.team-logo { width: 100%; height: 100%; object-fit: cover; }
+.team-name { flex: 1; font-weight: 600; font-size: 15px; }
+.points { font-family: 'Unbounded'; font-size: 12px; color: var(--text-dim); }
+
+/* MVP Card ИСПРАВЛЕННАЯ */
+.pow-card {
+    background: var(--card); 
+    border-radius: 24px; 
+    border: 1px solid var(--border);
+    height: 530px; 
+    position: relative;
+    overflow: hidden; /* Обрезает фото строго по рамке */
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.pow-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Фото заполняет рамку без искажений */
+    object-position: center top; 
+    display: block;
+    filter: brightness(0.8) saturate(0.9);
+    transition: transform 1.2s var(--cubic-smooth), filter 0.8s var(--cubic-smooth); 
+    will-change: transform;
+}
+
+.pow-overlay {
+    position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 25px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    z-index: 2;
+    pointer-events: none; /* Чтобы наведение шло на саму карточку */
+}
+
+.pow-card:hover .pow-img {
+    transform: scale(1.1); /* Плавное увеличение внутри рамки */
+    filter: brightness(1.05) saturate(1.1);
+}
+
+.pow-badge { background: var(--gold); color: #000; font-size: 10px; font-weight: 800; padding: 6px 12px; border-radius: 6px; align-self: flex-start; font-family: 'Unbounded'; }
+.pow-text-wrap h3 { font-family: 'Unbounded'; font-size: 28px; margin: 0 0 5px 0; color: #fff; text-transform: uppercase; }
+
+/* BRACKET (СЕТКА) */
+.bracket-container {
+    display: flex; padding: 40px; gap: 40px; overflow-x: auto; align-items: flex-start;
+}
+.bracket-stage { flex: 1; min-width: 220px; display: flex; flex-direction: column; }
+.stage-name { text-align: center; font-size: 11px; color: var(--text-dim); margin-bottom: 25px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+
+.match-group { display: flex; flex-direction: column; gap: 20px; height: 100%; }
+
+.spacer-upper-r2 { padding-top: 45px; gap: 90px; }
+.spacer-upper-r3 { padding-top: 110px; }
+
+.spacer-loser-r2 { padding-top: 0px; gap: 20px; }
+.spacer-loser-r3 { padding-top: 50px; }
+
+.match-item { background: #1c1c1c; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); }
+.m-team {
+    padding: 12px 15px; display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; border-bottom: 1px solid var(--border); position: relative; font-weight: 600;
+}
+.m-team::after {
+    content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 25px;
+    background: var(--gold); opacity: 0.1;
+}
+.m-team.win::after, .m-team.live::after { opacity: 1; }
+
+.m-score {
+    position: relative; z-index: 5; color: #000; font-weight: 800; width: 25px; text-align: center;
+    margin-right: -15px; font-family: 'Unbounded'; font-size: 11px;
+}
+.m-team:not(.win):not(.live) .m-score { color: var(--text-dim); }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+.m-team.live { animation: pulse 2s infinite; }
+
+@media (max-width: 1000px) {
+    .top-grid { grid-template-columns: 1fr; }
+    .bracket-container { justify-content: flex-start; }
+}
+/* MODAL STYLES */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: #141414;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 32px;
+    border: 1px solid var(--border);
+    position: relative;
+    padding: 40px;
+    transform: translateY(30px);
+    transition: transform 0.5s var(--cubic-smooth);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px; right: 20px;
+    background: none; border: none;
+    color: var(--text-dim);
+    font-size: 30px; cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-modal:hover { color: var(--gold); }
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 30px;
+}
+
+.modal-logo-big {
+    width: 120px;
+    height: 120px;
+    background: #1a1a1a;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.modal-logo-big img { width: 80%; height: 80%; object-fit: contain; }
+
+.modal-subtitle { color: var(--gold); font-family: 'Unbounded'; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; }
+.modal-title-wrap h2 { font-family: 'Unbounded'; margin: 5px 0 0 0; font-size: 28px; }
+
+.players-title { font-family: 'Unbounded'; font-size: 12px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 20px; }
+
+.player-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 15px 25px;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+.player-card:hover { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 215, 0, 0.3); }
+
+.player-info-main { display: flex; flex-direction: column; }
+.player-nickname { font-weight: 800; font-size: 16px; color: #fff; }
+.player-role { font-size: 12px; color: var(--text-dim); }
+
+.player-kd-badge {
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--gold);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: 'Unbounded';
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.team-row { cursor: pointer; }
+
+.player-detailed-stats {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+.player-detailed-stats span {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: 'Unbounded', sans-serif;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+}		
+
+/* Улучшенное модальное окно профиля */
+.profile-modal {
+    max-width: 700px !important; /* Увеличили ширину */
+    padding: 0 !important;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: #0f0f0f !important;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+}
+
+/* Блок с большим фото */
+.profile-photo-side {
+    width: 40%;
+    position: relative;
+    border-right: 1px solid var(--border);
+}
+
+.profile-photo-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Информационный блок */
+.profile-info-side {
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-nick-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: 'Unbounded';
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.profile-info-side h2 {
+    font-family: 'Unbounded';
+    font-size: 24px;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+.p-sub-info {
+    color: var(--text-dim);
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Детальная статистика */
+.profile-stats-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: auto;
+}
+
+.p-stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.p-stat-box:hover {
+    background: rgba(255, 215, 0, 0.05);
+    border-color: rgba(255, 215, 0, 0.2);
+}
+
+.p-label {
+    display: block;
+    font-size: 9px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.p-val {
+    font-family: 'Unbounded';
+    font-size: 18px;
+    color: #fff;
+}
+
+.gold-border .p-val {
+    color: var(--gold);
+}
+
+/* Кнопка закрытия поверх фото */
+.close-modal-alt {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 650px) {
+    .profile-container { flex-direction: column; }
+    .profile-photo-side { width: 100%; height: 250px; }
+    .profile-info-side { width: 100%; padding: 25px; }
+}
