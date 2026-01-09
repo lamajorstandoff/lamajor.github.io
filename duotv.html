@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuoTV | Турнирная сетка LaMajor</title>
+    <link rel="stylesheet" href="duotv.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="cursor-glow"></div>
+
+    <header class="stats-header">
+        <div class="container">
+            <div class="nav-row">
+                <div class="logo">LAMAJOR <span>DUO</span> STANDOFF 2</div>
+                <nav>
+                    <a href="index.html">Вернуться на главную</a>
+                    <a href="players.html">Топ игроков</a>
+                    <a href="https://t.me/lamajor_standoff2" target="_blank" class="tg-badge">Наш Telegram</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="top-grid">
+            <section class="teams-leaderboard">
+                <h2 class="block-title">Топ команд (нажмите для деталей)</h2>
+                <div class="stats-card" id="leaderboard">
+                    <div class="team-row" data-team="LUXIA ESPORTS">
+                        <span class="pos">1</span>
+                        <div class="logo-wrapper">
+                            <img src="https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png" class="team-logo">
+                        </div>
+                        <div class="team-name">LUXIA ESPORTS</div>
+                        <span class="points">1 🟡</span>
+                    </div>
+                    <div class="team-row" data-team="Farmit">
+                        <span class="pos">2</span>
+                        <div class="logo-wrapper">
+                            <img src="https://tlab.pro/images/players/d4219725df8e4b9882b920b58365161b.jpg" class="team-logo">
+                        </div>
+                        <div class="team-name">Farmit</div>
+                        <span class="points">1 🟡</span>
+                    </div>
+                    <div class="team-row" data-team="A1one Team">
+                        <span class="pos">3</span>
+                        <div class="logo-wrapper">
+                            <img src="https://tlab.pro/images/players/c3923dfc997e45cea6bc5c93a89e3030.jpg" class="team-logo">
+                        </div>
+                        <div class="team-name">A1one Team</div>
+                        <span class="points">1 🟡</span>
+                    </div>
+                    <div class="team-row" data-team="Domed Squad">
+                        <span class="pos">4</span>
+                        <div class="logo-wrapper">
+                            <img src="https://tlab.pro/images/players/822fcfe3e2324b82a08da77e4d139fde.jpg" class="team-logo">
+                        </div>
+                        <div class="team-name">Domed Squad</div>
+                        <span class="points">1 🟡</span>
+                    </div>
+                    <div class="team-row" data-team="XZease Team">
+                        <span class="pos">5</span>
+                        <div class="logo-wrapper">
+                            <img src="https://tlab.pro/images/players/4642a027ded5418a938edd5aed3f2d02.jpg" class="team-logo">
+                        </div>
+                        <div class="team-name">XZease Team</div>
+                        <span class="points">1 🟡</span>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="player-of-week">
+                <h2 class="block-title">Игрок недели</h2>
+                <div class="pow-card">
+                    <img src="https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png" class="pow-img">
+                    <div class="pow-overlay">
+                        <span class="pow-badge">MVP НЕДЕЛИ</span>
+                        <div class="pow-text-wrap">
+                            <h3>S1ence</h3>
+                            <div class="pow-stats-row">
+                                <span class="kd">K/D 1.00</span>
+                                <span class="dot">•</span>
+                                <span class="team">LUXIA ESPORTS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <section class="bracket-section">
+            <h2 class="block-title">Верхняя сетка</h2>
+            <div class="bracket-container stats-card">
+                <div class="bracket-stage">
+                    <div class="stage-name">Раунд 1</div>
+                    <div class="match-group">
+                        <div class="match-item">
+                            <div class="m-team win">LUXIA ESPORTS <span class="m-score">0</span></div>
+                            <div class="m-team">Farmit <span class="m-score">0</span></div>
+                        </div>
+                        <div class="match-item">
+                            <div class="m-team win">A1one Team <span class="m-score">0</span></div>
+                            <div class="m-team">- <span class="m-score">0</span></div>
+                        </div>
+                        <div class="match-item">
+                            <div class="m-team win">- <span class="m-score">0</span></div>
+                            <div class="m-team">XZease Team <span class="m-score">0</span></div>
+                        </div>
+                        <div class="match-item">
+                            <div class="m-team win">Domed Squad <span class="m-score">0</span></div>
+                            <div class="m-team">- <span class="m-score">0</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-stage">
+                    <div class="stage-name">Раунд 2</div>
+                    <div class="match-group spacer-upper-r2">
+                        <div class="match-item">
+                            <div class="m-team">TBD <span class="m-score"></span></div>
+                            <div class="m-team">TBD <span class="m-score"></span></div>
+                        </div>
+                        <div class="match-item">
+                            <div class="m-team">TBD <span class="m-score"></span></div>
+                            <div class="m-team">TBD <span class="m-score"></span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bracket-stage">
+                    <div class="stage-name">Финал</div>
+                    <div class="match-group spacer-upper-r3">
+                        <div class="match-item">
+                            <div class="m-team live">TBD <span class="m-score">?</span></div>
+                            <div class="m-team live">TBD <span class="m-score">?</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="teamModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-header">
+                <div class="modal-logo-container">
+                    <img src="" id="modalTeamLogo" class="modal-logo-img">
+                </div>
+                <div class="modal-info-text">
+                    <span class="status-badge">Активный команда</span>
+                    <h2 id="modalTeamName">TEAM NAME</h2>
+                    <div class="team-quick-stats">
+                        <span>🏆 0 Побед</span>
+                        <span>🎮 0 Матчей</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h4 class="section-divider">Состав команды</h4>
+                <div class="players-grid" id="modalPlayers">
+                    </div>
+            </div>
+        </div>
+    </div>
+
+<div class="modal-overlay" id="playerProfileModal">
+    <div class="modal-content profile-modal">
+        <button class="close-modal-alt" id="closeProfile">&times;</button>
+        <div class="profile-container">
+            <div class="profile-photo-side">
+                <img src="" id="p-photo" alt="Player Photo">
+            </div>
+            <div class="profile-info-side">
+                <div class="p-nick-badge" id="p-nick">NICKNAME</div>
+                <h2 id="p-full-name">Имя Фамилия</h2>
+                <p class="p-sub-info">
+                    <span id="p-age">0</span> лет • <span id="p-location">Город</span>
+                </p>
+
+                <div class="profile-stats-grid-detailed">
+                    <div class="p-stat-box">
+                        <span class="p-label">Убийства</span>
+                        <span class="p-val" id="p-k">0</span>
+                    </div>
+                    <div class="p-stat-box">
+                        <span class="p-label">Смерти</span>
+                        <span class="p-val" id="p-d">0</span>
+                    </div>
+                    <div class="p-stat-box">
+                        <span class="p-label">Ассисты</span>
+                        <span class="p-val" id="p-a">0</span>
+                    </div>
+                    <div class="p-stat-box gold-border">
+                        <span class="p-label">K/D Ratio</span>
+                        <span class="p-val" id="p-kd">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="duotv.js"></script>
+</body>
+</html>

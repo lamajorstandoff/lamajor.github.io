@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuoTV | Профили игроков</title>
+    <link rel="stylesheet" href="duotv.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/country-flag-emoji-polyfill@0.1.3/dist/twemoji-flags.css" rel="stylesheet">
+    <style>
+        .players-grid-page {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 1000px;
+            margin: 20px auto 40px;
+        }
+
+        /* Стили для поиска */
+        .search-container {
+            max-width: 1000px;
+            margin: 40px auto 10px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 15px 25px;
+            border-radius: 16px;
+            color: #fff;
+            font-family: 'Manrope', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        .search-input:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.1);
+        }
+
+        .player-profile-card {
+            display: flex;
+            align-items: center;
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 15px 25px;
+            border-radius: 16px;
+            transition: all 0.3s var(--cubic-smooth);
+        }
+
+        .player-profile-card:hover {
+            border-color: var(--gold);
+            transform: translateX(8px);
+            background: linear-gradient(90deg, rgba(255, 215, 0, 0.03) 0%, var(--card) 100%);
+            box-shadow: -10px 0 20px -10px rgba(255, 215, 0, 0.2);
+        }
+
+.profile-avatar {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    overflow: hidden; /* Чтобы картинка не вылезала */
+    padding: 5px; /* Небольшой отступ, чтобы лого не прилипало к краям */
+    box-sizing: border-box;
+}
+
+.profile-avatar img {
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* Чтобы логотипы лучше читались */
+}
+
+        .player-main-info { flex: 1; }
+        .profile-nick { font-family: 'Unbounded'; font-size: 18px; display: block; color: #fff; }
+        .profile-team { font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
+
+        .profile-stats-grid { display: flex; gap: 40px; align-items: center; }
+        .stat-item { display: flex; flex-direction: column; align-items: center; min-width: 50px; }
+        .stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+        .stat-value { font-family: 'Unbounded'; font-size: 14px; }
+
+        .kd-main { border-left: 1px solid var(--border); padding-left: 30px; min-width: 70px; }
+        .kd-main .stat-value { color: var(--gold); font-size: 20px; }
+
+        /* Сообщение "не найдено" */
+        .no-results { text-align: center; color: var(--text-dim); padding: 40px; font-family: 'Unbounded'; font-size: 14px; }
+.search-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sort-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.sort-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.sort-btn:hover {
+    border-color: var(--gold);
+    color: #fff;
+}
+
+.sort-btn.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+    font-weight: 600;
+}
+
+/* Улучшенное модальное окно профиля */
+.profile-modal {
+    max-width: 700px !important; /* Увеличили ширину */
+    padding: 0 !important;
+    overflow: hidden;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: #0f0f0f !important;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    min-height: 400px;
+}
+
+/* Блок с большим фото */
+.profile-photo-side {
+    width: 40%;
+    position: relative;
+    border-right: 1px solid var(--border);
+}
+
+.profile-photo-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Информационный блок */
+.profile-info-side {
+    width: 60%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.p-nick-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-family: 'Unbounded';
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.profile-info-side h2 {
+    font-family: 'Unbounded';
+    font-size: 24px;
+    margin: 0 0 5px 0;
+    color: #fff;
+}
+
+.p-sub-info {
+    font-family: "Twemoji Country Flags", "Manrope", sans-serif;
+}
+
+/* Детальная статистика */
+.profile-stats-grid-detailed {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: auto;
+}
+
+.p-stat-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.p-stat-box:hover {
+    background: rgba(255, 215, 0, 0.05);
+    border-color: rgba(255, 215, 0, 0.2);
+}
+
+.p-label {
+    display: block;
+    font-size: 9px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.p-val {
+    font-family: 'Unbounded';
+    font-size: 18px;
+    color: #fff;
+}
+
+.gold-border .p-val {
+    color: var(--gold);
+}
+
+.close-modal-alt {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.close-modal-alt:hover {
+    background: var(--gold);
+    color: black;
+}
+
+@media (max-width: 650px) {
+    .profile-container { flex-direction: column; }
+    .profile-photo-side { width: 100%; height: 250px; }
+    .profile-info-side { width: 100%; padding: 25px; }
+}
+    </style>
+</head>
+<body>
+    <div class="cursor-glow"></div>
+    <header class="stats-header">
+        <div class="container">
+            <div class="nav-row">
+                <div class="logo">LAMAJOR <span>DUO</span> STANDOFF 2</div>
+                <nav>
+                    <a href="duotv.html">Основной раздел</a>
+                    <a href="https://t.me/lamajor_standoff2" target="_blank" class="tg-badge">Наш Telegram</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+       <div class="search-container">
+    <input type="text" id="playerSearch" class="search-input" placeholder="Поиск игрока по никнейму...">
+    <div class="sort-controls">
+        <button class="sort-btn active" data-sort="default">По умолчанию</button>
+        <button class="sort-btn" data-sort="kd">Топ K/D</button>
+        <button class="sort-btn" data-sort="kills">Больше киллов</button>
+    </div>
+</div>
+        <div class="players-grid-page" id="allPlayersGrid"></div>
+    </main>
+
+<div class="modal-overlay" id="playerProfileModal">
+    <div class="modal-content profile-modal">
+        <button class="close-modal-alt" id="closeProfile">&times;</button>
+        <div class="profile-container">
+            <div class="profile-photo-side">
+                <img src="" id="p-photo" alt="Player Photo">
+            </div>
+            <div class="profile-info-side">
+                <div class="p-nick-badge" id="p-nick">NICKNAME</div>
+                <h2 id="p-full-name">Имя Фамилия</h2>
+                <p class="p-sub-info">
+                    <span id="p-age">0</span> лет • <span id="p-location">Город 🇷🇺</span>
+                </p>
+
+                <div class="profile-stats-grid-detailed">
+                    <div class="p-stat-box">
+                        <span class="p-label">Убийства</span>
+                        <span class="p-val" id="p-k">0</span>
+                    </div>
+                    <div class="p-stat-box">
+                        <span class="p-label">Смерти</span>
+                        <span class="p-val" id="p-d">0</span>
+                    </div>
+                    <div class="p-stat-box">
+                        <span class="p-label">Ассисты</span>
+                        <span class="p-val" id="p-a">0</span>
+                    </div>
+                    <div class="p-stat-box gold-border">
+                        <span class="p-label">K/D Ratio</span>
+                        <span class="p-val" id="p-kd">0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="duotv.js"></script>
+</body>
+</html>
