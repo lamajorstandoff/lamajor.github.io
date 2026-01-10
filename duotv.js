@@ -171,51 +171,60 @@ const grid = document.getElementById('allPlayersGrid');
     let currentSort = 'default';
 
 function renderPlayers(filter = '') {
-        if (!grid) return;
-        grid.innerHTML = '';
-        
-        let allPlayers = [];
-        Object.keys(teamData).forEach(teamName => {
-            const team = teamData[teamName];
-            team.players.forEach(p => {
-                // Считаем K/D для каждого игрока сразу
-                const kdValue = p.d > 0 ? (p.k / p.d) : p.k;
-                allPlayers.push({ 
-                    ...p, 
-                    teamName, 
-                    teamLogo: team.logo, // Добавляем логотип
-                    calculatedKD: kdValue 
-                });
-            });
-        });
+        if (!grid) return;
+        grid.innerHTML = '';
+        
+        let allPlayers = [];
+        Object.keys(teamData).forEach(teamName => {
+            const team = teamData[teamName];
+            team.players.forEach(p => {
+                // Считаем K/D для каждого игрока сразу
+                const kdValue = p.d > 0 ? (p.k / p.d) : p.k;
+                allPlayers.push({ 
+                    ...p, 
+                    teamName, 
+                    teamLogo: team.logo, // Добавляем логотип
+                    calculatedKD: kdValue 
+                });
+            });
+        });
 
-        // Фильтрация
-        let filteredPlayers = allPlayers.filter(p => 
-            p.nick.toLowerCase().includes(filter.toLowerCase())
-        );
+        // Фильтрация
+        let filteredPlayers = allPlayers.filter(p => 
+            p.nick.toLowerCase().includes(filter.toLowerCase())
+        );
 
-        // Исправленная сортировка
-        if (currentSort === 'kd') {
-            filteredPlayers.sort((a, b) => b.calculatedKD - a.calculatedKD);
-        } else if (currentSort === 'kills') {
-            filteredPlayers.sort((a, b) => b.k - a.k);
-        }
+        // Исправленная сортировка
+        if (currentSort === 'kd') {
+            filteredPlayers.sort((a, b) => b.calculatedKD - a.calculatedKD);
+        } else if (currentSort === 'kills') {
+            filteredPlayers.sort((a, b) => b.k - a.k);
+        }
 
-        if (filteredPlayers.length === 0) {
-            grid.innerHTML = `<div class="no-results" style="text-align:center; width:100%; padding:40px; color:var(--text-dim); font-family:'Unbounded';">Игрок не найден</div>`;
-            return;
-        }
-
-        filteredPlayers.forEach(p => {
+        if (filteredPlayers.length === 0) {
+            grid.innerHTML = `<div class="no-results" style="text-align:center; width:100%; padding:40px; color:var(--text-dim); font-family:'Unbounded';">Игрок не найден</div>`;
+            return;
+        }
+filteredPlayers.forEach(p => {
             const card = document.createElement('div');
-            card.className = 'player-profile-card stats-card';
+            // Добавляем класс player-row для совместимости со стилями
+            card.className = 'player-profile-card stats-card player-row'; 
+            
+            // Обязательно добавляем атрибуты для мобильной версии
+            card.setAttribute('data-k', p.k);
+            card.setAttribute('data-d', p.d);
+            card.setAttribute('data-a', p.a);
+            card.setAttribute('data-kd', p.calculatedKD.toFixed(2));
+
             card.innerHTML = `
-                <div class="profile-avatar">
-                    <img src="${p.teamLogo}" alt="${p.teamName}" style="width: 100%; height: 100%; object-fit: contain; border-radius: 6px;">
-                </div>
-                <div class="player-main-info">
-                    <span class="profile-nick">${p.nick}</span>
-                    <span class="profile-team">${p.teamName}</span>
+                <div class="info-left" style="display: flex; align-items: center; flex: 1;">
+                    <div class="profile-avatar">
+                        <img src="${p.teamLogo}" alt="${p.teamName}" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <div class="player-main-info">
+                        <span class="profile-nick">${p.nick}</span>
+                        <span class="profile-team">${p.teamName}</span>
+                    </div>
                 </div>
                 <div class="profile-stats-grid">
                     <div class="stat-item"><span class="stat-label">K</span><span class="stat-value">${p.k}</span></div>
@@ -248,7 +257,7 @@ document.getElementById('p-location').innerHTML = `
     document.getElementById('p-a').innerText = p.a;
     document.getElementById('p-kd').innerText = p.calculatedKD.toFixed(2);
 
-    // Показываем окно
+    // Показываем окно	
     modal.classList.add('active');
     document.body.style.overflow = 'hidden'; // Отключаем прокрутку сайта
 });
