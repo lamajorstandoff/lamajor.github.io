@@ -24,8 +24,8 @@ const teamData = {
     "XZease Team": {
         logo: "https://tlab.pro/images/players/4642a027ded5418a938edd5aed3f2d02.jpg",
         players: [
-            { nick: "Вопросы", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" },
-            { nick: "Xantares", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
+            { nick: "Wago_120fps", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Влад", lastName: "Челюканов", age: "13", city: "Рязань", countryEmoji: "ru", photo: "" },
+            { nick: "f1tre", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
         ]
     },
     "Domed Squad": {
@@ -314,4 +314,5 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
