@@ -30,7 +30,7 @@ body {
 /* Header */
 .stats-header { padding: 30px 0; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
 .nav-row { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: 'Unbounded'; font-weight: 700; font-size: 20px; letter-spacing: 1px; }
+.logo { font-family: 'Unbounded'; font-weight: 700; font-size: 20px; letter-spacing: 5px; }
 .logo span { color: var(--gold); }
 nav a { color: var(--text-dim); text-decoration: none; font-size: 14px; margin-left: 20px; transition: 0.3s; }
 nav a:hover { color: var(--gold); }
@@ -386,4 +386,288 @@ nav a:hover { color: var(--gold); }
     .profile-container { flex-direction: column; }
     .profile-photo-side { width: 100%; height: 250px; }
     .profile-info-side { width: 100%; padding: 25px; }
+}
+
+/* Адаптация шапки */
+@media (max-width: 768px) {
+    .stats-header {
+        padding: 20px 0; /* Уменьшаем вертикальные отступы */
+        margin-bottom: 20px;
+    }
+
+    .nav-row {
+        flex-direction: column; /* Складываем лого и меню в колонку */
+        gap: 15px; /* Добавляем расстояние между ними */
+        text-align: center;
+    }
+
+    .logo {
+        font-size: 18px; /* Немного уменьшаем шрифт логотипа */
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap; /* Позволяем ссылкам переноситься на новую строку */
+        justify-content: center;
+        gap: 10px;
+        margin: 0;
+    }
+
+    nav a {
+        margin-left: 0; /* Сбрасываем левый отступ, который мешает центровке */
+        font-size: 13px;
+    }
+
+    .tg-badge {
+        padding: 6px 12px; /* Компактная кнопка для мобильных */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Контейнер для списка игроков */
+    .players-grid-page {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+
+    /* Превращаем строку в карточку */
+    .player-row {
+        display: grid !important;
+        grid-template-areas: 
+            "rank info"
+            "stats stats" !important;
+        grid-template-columns: 50px 1fr !important;
+        height: auto !important;
+        background: var(--card) !important;
+        border: 1px solid var(--border) !important;
+        border-radius: 15px !important;
+        padding: 15px !important;
+        gap: 15px !important;
+    }
+
+    /* Место игрока (круг слева сверху) */
+    .p-rank {
+        grid-area: rank;
+        background: rgba(255, 215, 0, 0.1);
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        color: var(--gold);
+        font-weight: 800;
+        font-size: 14px;
+    }
+
+    /* Блок с аватаром и ником */
+    .p-info {
+        grid-area: info;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+    }
+
+    .p-avatar {
+        width: 45px !important;
+        height: 45px !important;
+        border: 2px solid var(--border);
+    }
+
+    .p-name {
+        font-size: 16px !important;
+        font-weight: 700 !important;
+    }
+
+    /* Блок статистики (выносим вниз карточки) */
+    .player-row .p-stat {
+        display: none; /* Прячем старые одиночные блоки */
+    }
+
+    /* Создаем новую сетку для статистики внутри карточки */
+    .player-row::after {
+        grid-area: stats;
+        content: "K: " attr(data-k) " | D: " attr(data-d) " | A: " attr(data-a) " | KD: " attr(data-kd);
+        display: flex;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px;
+        border-radius: 8px;
+        font-family: 'Manrope';
+        font-size: 13px;
+        color: var(--text-dim);
+        border-top: 1px solid var(--border);
+    }
+
+    /* Специально подсвечиваем KD */
+    .player-row[data-kd]::after {
+        content: "K " attr(data-k) "  •  D " attr(data-d) "  •  A " attr(data-a) "  •  KD " attr(data-kd);
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+}
+
+/* Базовый вид (ПК) - возвращаем компактность */
+.player-profile-card.player-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 90px !important; /* Фиксируем высоту для ПК */
+    padding: 10px 25px !important;
+}
+
+@media (max-width: 768px) {
+    .players-grid-page {
+        gap: 12px;
+        padding: 0 15px;
+    }
+
+    .player-profile-card.player-row {
+        display: grid !important;
+        /* Сетка: Аватар | Ник и Команда | K/D */
+        grid-template-columns: 50px 1fr 60px !important;
+        grid-template-areas: 
+            "avatar info kd"
+            "footer footer footer" !important;
+        height: auto !important;
+        padding: 15px !important;
+        background: linear-gradient(145deg, #1a1a1a, #141414) !important;
+        border: 1px solid var(--border) !important;
+        align-items: center !important;
+        gap: 10px 15px !important;
+    }
+
+    /* Аватар */
+    .player-profile-card.player-row .info-left {
+        display: contents !important; /* Разваливаем контейнер для сетки */
+    }
+
+    .player-profile-card.player-row .profile-avatar {
+        grid-area: avatar;
+        width: 45px !important;
+        height: 45px !important;
+        margin: 0 !important;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    /* Информация об игроке */
+    .player-profile-card.player-row .player-main-info {
+        grid-area: info;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .player-profile-card.player-row .profile-nick {
+        font-size: 15px !important;
+        font-weight: 800;
+        color: #fff;
+    }
+
+    .player-profile-card.player-row .profile-team {
+        font-size: 11px !important;
+        color: var(--text-dim);
+    }
+
+    /* K/D в отдельном элементе (используем существующий .p-stat или kd-main) */
+    /* Но так как мы используем ::after для данных, сделаем по-другому: */
+    
+    .player-profile-card.player-row::before {
+        grid-area: kd;
+        content: attr(data-kd);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 215, 0, 0.1);
+        color: var(--gold);
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        font-family: 'Unbounded';
+        font-size: 13px;
+        font-weight: 700;
+        border: 1px solid rgba(255, 215, 0, 0.2);
+    }
+
+    /* Нижняя полоска со статой (K • D • A) */
+    .player-profile-card.player-row::after {
+        grid-area: footer;
+        content: "KILLS: " attr(data-k) "   DEATHS: " attr(data-d) "   ASSISTS: " attr(data-a);
+        display: block;
+        width: 100%;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: #666;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-align: left;
+        margin: 0 !important;
+        background: transparent !important; /* Убираем прошлый фон */
+    }
+
+    /* Прячем стандартную сетку, чтобы не мешала */
+    .player-profile-card.player-row .profile-stats-grid {
+        display: none !important;
+    }
+}
+
+/* Фикс модального окна MVP для мобильных устройств */
+@media (max-width: 768px) {
+    /* Находим контейнер именно внутри модалки, чтобы не испортить список игроков */
+    #playerProfileModal .profile-container {
+        flex-direction: column !important; /* Фото сверху, инфо снизу */
+        height: auto !important;
+        max-height: 85vh; /* Чтобы не уходило за пределы экрана */
+        overflow-y: auto; /* Прокрутка, если контент не влез */
+        padding: 20px !important;
+        display: flex !important;
+    }
+
+    /* Исправляем фото: центрируем и не даем обрезать голову */
+    #playerProfileModal .profile-photo-side {
+        width: 100% !important;
+        max-width: 220px !important;
+        height: 220px !important;
+        margin: 0 auto 20px !important;
+        flex-shrink: 0;
+    }
+
+    #playerProfileModal .profile-photo-side img {
+        object-fit: cover !important;
+        object-position: top !important; /* Это критично, чтобы не резало голову */
+        border-radius: 15px;
+    }
+
+    /* Текстовая часть */
+    #playerProfileModal .profile-info-side {
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
+
+    /* Сетка статистики внутри модалки (делаем 2х2) */
+    #playerProfileModal .profile-stats-grid-detailed {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+    }
+
+    #playerProfileModal .p-stat-box {
+        padding: 12px 5px !important;
+    }
+
+    /* Исправляем заголовок и ник, чтобы не вылетали */
+    #playerProfileModal .p-nick-badge {
+        margin: 0 auto 10px !important;
+        display: inline-block;
+    }
+
+    #playerProfileModal h2 {
+        font-size: 20px !important;
+    }
 }
