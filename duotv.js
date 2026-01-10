@@ -34,6 +34,13 @@ const teamData = {
             { nick: "EnouragE", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Александр", lastName: "Белов", age: "15", city: "Краснодар", countryEmoji: "ru", photo: "" },
             { nick: "inv1sible", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Егор", lastName: "Зимин", age: "14", city: "Москва", countryEmoji: "ru", photo: "" }
         ]
+    },
+    "Angels of Death": {
+        logo: "https://tlab.pro/images/players/7e149c5904cd46a1b20fbdaa15e581e8.jpg",
+        players: [
+            { nick: "Why?", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Данило", lastName: "Худяков", age: "10", city: "Львов", countryEmoji: "ua", photo: "" },
+            { nick: "Brat1shka", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Дубина", lastName: "Денис", age: "10", city: "Львов", countryEmoji: "ua", photo: "" }
+        ]
     }
 };
 
@@ -314,5 +321,6 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
 
