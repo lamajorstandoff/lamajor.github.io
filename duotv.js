@@ -17,8 +17,8 @@ const teamData = {
     "A1one Team": {
         logo: "https://tlab.pro/images/players/c3923dfc997e45cea6bc5c93a89e3030.jpg",
         players: [
-            { nick: "black boy", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Норик", lastName: "Комитасян", age: "13", city: "Санкт-Петербург", countryEmoji: "ru", photo: "" },
-            { nick: "Reed", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Тимофей", lastName: "Аксентьев", age: "13", city: "Санкт-Петербург", countryEmoji: "ru", photo: "" }
+            { nick: "Reed", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Норик", lastName: "Комитасян", age: "13", city: "Санкт-Петербург", countryEmoji: "ru", photo: "" },
+            { nick: "black boy", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Тимофей", lastName: "Аксентьев", age: "13", city: "Санкт-Петербург", countryEmoji: "ru", photo: "" }
         ]
     },
     "XZease Team": {
@@ -328,6 +328,7 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
 
 
