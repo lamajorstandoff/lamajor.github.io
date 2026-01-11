@@ -52,8 +52,8 @@ const teamData = {
     "MAINLAFT": {
         logo: "https://tlab.pro/images/tournaments/0eab1146eccd4a9db9b75a8a09fe0e63.png",
         players: [
-            { nick: "DRACHOMEN", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "16", city: "", countryEmoji: "ru", photo: "" },
-            { nick: "fntx", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "17", city: "", countryEmoji: "ru", photo: "" }
+            { nick: "DRACHOMEN", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Илья", lastName: "Метрафанов", age: "16", city: "", countryEmoji: "ru", photo: "https://psv4.userapi.com/s/v1/d2/VmOPKOQsoahcD02DcW0hxmiRWtns8ZacTKa49eAL2ufZ1OKfU54J8eVERSwk0iZaJ5KWkBmcq0BFcsA5K1iMmX94J515b6DjD8pOuhVe7695jYjQ98BEmxZ-lRVHuylpiJ7Q-bJRClO3/Falcons_DRACHOMEN.png" },
+            { nick: "fntx", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Денис", lastName: "Филиппов", age: "17", city: "", countryEmoji: "ru", photo: "" }
         ]
     }
 };
@@ -335,6 +335,7 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
 
 
