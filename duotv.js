@@ -41,6 +41,13 @@ const teamData = {
             { nick: "Why?", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Данило", lastName: "Худяков", age: "10", city: "Львов", countryEmoji: "ua", photo: "" },
             { nick: "Brat1shka", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Денис", lastName: "Дубина", age: "10", city: "Львов", countryEmoji: "ua", photo: "" }
         ]
+    },
+    "Elite": {
+        logo: "https://tlab.pro/images/players/cd27234589ce4157903279a9e5b65bda.jpg",
+        players: [
+            { nick: "yumi", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" },
+            { nick: "yoshi", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
+        ]
     }
 };
 
@@ -321,6 +328,7 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
 
 
