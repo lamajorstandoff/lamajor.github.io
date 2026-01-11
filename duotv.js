@@ -48,6 +48,13 @@ const teamData = {
             { nick: "yumi", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" },
             { nick: "yoshi", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
         ]
+    },
+    "MAINLAFT": {
+        logo: "https://sun9-81.userapi.com/s/v1/ig2/Hu_YMr1ImBs6SgMncXBQhjW1BOXJAN-ByYjEhTYWM7NroW_EKWOhcSrMaCBYJm2SiW1aPfiKCYrAHtQpKga0sBZ6.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640,720x720,1024x1024&from=bu&cs=1024x0",
+        players: [
+            { nick: "DRACHOMEN", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "16", city: "", countryEmoji: "ru", photo: "" },
+            { nick: "fntx", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "17", city: "", countryEmoji: "ru", photo: "" }
+        ]
     }
 };
 
@@ -328,6 +335,7 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
 
 
