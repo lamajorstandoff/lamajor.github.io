@@ -89,11 +89,26 @@
             <div id="teams-container"></div>
         </div>
 
+<div class="admin-section">
+    <h2 class="block-title">Управление матчами</h2>
+    
+    <div class="match-form" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr auto; gap: 10px; margin-bottom: 20px;">
+        <select id="match-team1" class="form-control"></select>
+        <select id="match-team2" class="form-control"></select>
+        <input type="text" id="match-date" class="form-control" placeholder="Дата (напр. 15 Янв)">
+        <input type="text" id="match-time" class="form-control" placeholder="Время (напр. 19:00)">
+        <button class="btn-add" onclick="addNewMatch()" style="margin:0;">+</button>
+    </div>
+
+    <div id="admin-matches-list">
+        </div>
+</div>
+
     </div>
 
     <button class="btn-save floating-save" onclick="downloadData()">💾 Скачать новый data.js</button>
 
-    <script src="data.js"></script>
-    <script src="admin.js"></script>
+<script src="data.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>
