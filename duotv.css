@@ -671,3 +671,82 @@ nav a:hover { color: var(--gold); }
         font-size: 20px !important;
     }
 }
+
+/* Предстоящие матчи */
+.upcoming-matches-section {
+    margin-bottom: 40px;
+}
+
+.matches-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.match-card-new {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.match-card-new:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.match-info-top {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-family: 'Unbounded';
+    margin-bottom: 15px;
+    background: rgba(255, 215, 0, 0.1);
+    padding: 4px 12px;
+    border-radius: 100px;
+}
+
+.match-teams-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+.m-team-side {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.m-team-side img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #1a1a1a;
+    border: 1px solid var(--border);
+}
+
+.m-team-side span {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.vs-label {
+    font-family: 'Unbounded';
+    font-size: 14px;
+    color: var(--text-dim);
+    opacity: 0.5;
+}
