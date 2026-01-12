@@ -176,6 +176,81 @@ function updatePlayer(teamName, playerIdx, field, value) {
     else p.kd = p.k.toFixed(2);
 }
 
+/* Добавьте в admin.js */
+
+// В initMatches заполняем селекторы команд и выводим текущий список
+function initMatches() {
+    const t1Select = document.getElementById('match-team1');
+    const t2Select = document.getElementById('match-team2');
+    const listContainer = document.getElementById('admin-matches-list');
+    
+    if(!t1Select || !listContainer) return;
+
+    // Заполняем селекты
+    const teamOptions = Object.keys(teamData).map(name => `<option value="${name}">${name}</option>`).join('');
+    t1Select.innerHTML = teamOptions;
+    t2Select.innerHTML = teamOptions;
+
+    // Отрисовка списка для удаления
+    listContainer.innerHTML = '';
+    matchesData.forEach((m, idx) => {
+        const div = document.createElement('div');
+        div.className = 'team-editor-item'; // используем существующий класс для стиля
+        div.style.padding = '10px 20px';
+        div.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span><strong>${m.team1}</strong> vs <strong>${m.team2}</strong> — ${m.date}, ${m.time}</span>
+                <button class="btn-add" style="background:#ff4444; width:auto; padding:5px 15px;" onclick="deleteMatch(${idx})">Удалить</button>
+            </div>
+        `;
+        listContainer.appendChild(div);
+    });
+}
+
+function addNewMatch() {
+    const team1 = document.getElementById('match-team1').value;
+    const team2 = document.getElementById('match-team2').value;
+    const date = document.getElementById('match-date').value;
+    const time = document.getElementById('match-time').value;
+
+    if(!date || !time) return alert("Заполните дату и время!");
+
+    matchesData.push({ team1, team2, date, time });
+    initMatches();
+}
+
+function deleteMatch(index) {
+    matchesData.splice(index, 1);
+    initMatches();
+}
+
+// ОБЯЗАТЕЛЬНО ОБНОВИТЕ функцию downloadData() в admin.js, чтобы она включала matchesData:
+function downloadData() {
+    saveMVPFromUI(); 
+
+    // Формируем текст нового файла data.js
+    const content = `/* Updated: ${new Date().toLocaleString()} */
+const teamData = ${JSON.stringify(teamData, null, 4)};
+
+const mvpData = ${JSON.stringify(mvpData, null, 4)};
+
+let matchesData = ${JSON.stringify(matchesData, null, 4)}; 
+`; // <-- Проверьте, чтобы здесь было "let matchesData"
+
+    const blob = new Blob([content], { type: 'text/javascript' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'data.js';
+    a.click();
+}
+// Добавьте вызов initMatches в document.addEventListener('DOMContentLoaded', ...)
+document.addEventListener('DOMContentLoaded', () => {
+    initMVP();
+    initTeams();
+    initMatches(); // <-- Добавить это
+});
+
 // --- EXPORT LOGIC ---
 function downloadData() {
     saveMVPFromUI(); // Сначала сохраняем MVP из полей в переменную
@@ -184,6 +259,8 @@ function downloadData() {
 const teamData = ${JSON.stringify(teamData, null, 4)};
 
 const mvpData = ${JSON.stringify(mvpData, null, 4)};
+
+let matchesData = ${JSON.stringify(matchesData, null, 4)};
 `;
 
     const blob = new Blob([content], { type: 'text/javascript' });
