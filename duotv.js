@@ -1,76 +1,46 @@
 // 1. ДАННЫЕ ВЫНЕСЕНЫ НАВЕРХ (теперь они видны везде)
-const teamData = {
-    "LUXIA ESPORTS": {
-        logo: "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png",
-        players: [
-            { nick: "hakuji", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Андриян", lastName: "Егоров", age: "17", city: "Чебоксары", countryEmoji: "ru", photo: "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png" },
-            { nick: "S1ence", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Альберт", lastName: "Егоров", age: "15", city: "Чебоксары", countryEmoji: "ru", photo: "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png" }
-        ]
-    },
-    "Farmit": {
-        logo: "https://tlab.pro/images/players/d4219725df8e4b9882b920b58365161b.jpg",
-        players: [
-            { nick: "Toxic? FERNANDO", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" },
-            { nick: "Tt: Samyrai", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
-        ]
-    },
-    "A1one Team": {
-        logo: "https://tlab.pro/images/players/c3923dfc997e45cea6bc5c93a89e3030.jpg",
-        players: [
-            { nick: "Reed", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Норик", lastName: "Комитасян", age: "13", city: "Санкт-Петербург", countryEmoji: "ru", photo: "" },
-            { nick: "black boy", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Тимофей", lastName: "Аксентьев", age: "13", city: "Санкт-Петербург", countryEmoji: "ru", photo: "" }
-        ]
-    },
-    "XZease Team": {
-        logo: "https://tlab.pro/images/players/4642a027ded5418a938edd5aed3f2d02.jpg",
-        players: [
-            { nick: "Wago_120fps", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Влад", lastName: "Челюканов", age: "13", city: "Рязань", countryEmoji: "ru", photo: "" },
-            { nick: "f1tre", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
-        ]
-    },
-    "Domed Squad": {
-        logo: "https://tlab.pro/images/players/822fcfe3e2324b82a08da77e4d139fde.jpg",
-        players: [
-            { nick: "EnouragE", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Александр", lastName: "Белов", age: "15", city: "Краснодар", countryEmoji: "ru", photo: "" },
-            { nick: "inv1sible", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Егор", lastName: "Зимин", age: "14", city: "Москва", countryEmoji: "ru", photo: "" }
-        ]
-    },
-    "Angels of Death": {
-        logo: "https://tlab.pro/images/players/7e149c5904cd46a1b20fbdaa15e581e8.jpg",
-        players: [
-            { nick: "Why?", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Данило", lastName: "Худяков", age: "10", city: "Львов", countryEmoji: "ua", photo: "" },
-            { nick: "Brat1shka", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Денис", lastName: "Дубина", age: "10", city: "Львов", countryEmoji: "ua", photo: "" }
-        ]
-    },
-    "Elite": {
-        logo: "https://tlab.pro/images/players/cd27234589ce4157903279a9e5b65bda.jpg",
-        players: [
-            { nick: "yumi", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" },
-            { nick: "yoshi", kd: "1.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "eu", photo: "" }
-        ]
-    },
-    "MAINLAFT": {
-        logo: "https://tlab.pro/images/tournaments/0eab1146eccd4a9db9b75a8a09fe0e63.png",
-        players: [
-            { nick: "DRACHOMEN", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Илья", lastName: "Метрафанов", age: "16", city: "", countryEmoji: "ru", photo: "https://psv4.userapi.com/s/v1/d2/VmOPKOQsoahcD02DcW0hxmiRWtns8ZacTKa49eAL2ufZ1OKfU54J8eVERSwk0iZaJ5KWkBmcq0BFcsA5K1iMmX94J515b6DjD8pOuhVe7695jYjQ98BEmxZ-lRVHuylpiJ7Q-bJRClO3/Falcons_DRACHOMEN.png" },
-            { nick: "fntx", kd: "1.00", k: 0, d: 0, a: 0, firstName: "Денис", lastName: "Филиппов", age: "17", city: "", countryEmoji: "ru", photo: "" }
-        ]
-    }
-};
-
-const mvpData = {
-    nick: "S1ence", 
-    k: 0, d: 0, a: 0,
-    firstName: "Альберт",
-    lastName: "Егоров",
-    age: 15,
-    city: "Чебоксары",
-    countryCode: "ru",
-    photo: "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png", // Ссылка на большое фото
-    teamLogo: "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
-};
-
 document.addEventListener('DOMContentLoaded', () => {
+
+function renderLeaderboard() {
+    const leaderboardContainer = document.getElementById('leaderboard');
+    if (!leaderboardContainer) return;
+
+    // 1. Превращаем объект в массив для сортировки
+    const teamsArray = Object.keys(teamData).map(name => ({
+        name: name,
+        ...teamData[name]
+    }));
+
+    // 2. Сортируем по убыванию очков
+    teamsArray.sort((a, b) => b.points - a.points);
+
+    // 3. Очищаем контейнер и наполняем его
+    leaderboardContainer.innerHTML = '';
+
+    teamsArray.forEach((team, index) => {
+        const row = document.createElement('div');
+        row.className = 'team-row';
+        row.setAttribute('data-team', team.name);
+        
+        row.innerHTML = `
+            <span class="pos">${index + 1}</span>
+            <div class="logo-wrapper">
+                <img src="${team.logo}" class="team-logo">
+            </div>
+            <div class="team-name">${team.name}</div>
+            <span class="points">${team.points} 🟡</span>
+        `;
+
+        // Добавляем событие клика для открытия модалки (как у тебя было)
+        row.addEventListener('click', () => openTeamModal(team.name));
+        
+        leaderboardContainer.appendChild(row);
+    });
+}
+
+// Вызываем при загрузке
+renderLeaderboard();
+
     // Плавное появление
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -152,12 +122,25 @@ powCard.style.cursor = 'pointer'; // Делаем карточку кликаб�
                 if (data) {
                     document.getElementById('modalTeamName').innerText = teamName;
                     document.getElementById('modalTeamLogo').src = data.logo;
+
+            const wins = data.wins || 0;     // Если нет данных, ставим 0
+            const losses = data.losses || 0; // Если нет данных, ставим 0
+            const totalMatches = wins + losses;
+
+            const statsContainer = document.querySelector('.team-quick-stats');
+            if (statsContainer) {
+                statsContainer.innerHTML = `
+                    <span>🏆 ${wins} Побед |</span>
+                    <span>💀 ${losses} Поражений |</span>
+                    <span>🎮 ${totalMatches} Матчей</span>
+                `;
+            }
+
                     const playersCont = document.getElementById('modalPlayers');
                     playersCont.innerHTML = '';
 		data.players.forEach(p => {
                     // Считаем K/D для модального окна
                     const modalKD = p.d > 0 ? (p.k / p.d).toFixed(2) : p.k.toFixed(2);
-                    
                     playersCont.innerHTML += `
                         <div class="player-card">
                             <div class="player-info-main">
