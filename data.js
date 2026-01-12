@@ -156,7 +156,7 @@ const teamData = {
                 "firstName": "Максим",
                 "lastName": "Коваленко",
                 "age": "14",
-                "city": "Москва",
+                "city": "Киев",
                 "countryEmoji": "ua",
                 "photo": ""
             }
