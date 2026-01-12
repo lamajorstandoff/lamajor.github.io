@@ -170,9 +170,9 @@ powCard.style.cursor = 'pointer'; // Делаем карточку кликаб�
             const statsContainer = document.querySelector('.team-quick-stats');
             if (statsContainer) {
                 statsContainer.innerHTML = `
-                    <span>🏆 ${wins} Побед |</span>
-                    <span>💀 ${losses} Поражений |</span>
-                    <span>🎮 ${totalMatches} Матчей</span>
+                    <span>🏆 ${wins} Побед</span><br>
+                    <span>💀 ${losses} Поражений</span><br>
+                    <span>🎮 ${totalMatches} Матчей</span><br>
                 `;
             }
 
@@ -358,6 +358,7 @@ document.addEventListener('click', (e) => {
         document.body.style.overflow = 'auto';
     }
 });
+
 
 
 
