@@ -131,7 +131,7 @@ const teamData = {
         ]
     },
     "Domed Squad": {
-        "points": 0,
+        "points": 1,
         "logo": "https://tlab.pro/images/players/822fcfe3e2324b82a08da77e4d139fde.jpg",
         "players": [
             {
