@@ -1,4 +1,4 @@
-/* Updated: 12.01.2026, 15:47:35 */
+/* Updated: 12.01.2026, 17:14:08 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 0,
@@ -273,3 +273,12 @@ const mvpData = {
     "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png",
     "teamLogo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
 };
+
+let matchesData = [
+    {
+        "team1": "A1one Team",
+        "team2": "Angels of Death",
+        "date": "12 Янв",
+        "time": "22:30"
+    }
+];
