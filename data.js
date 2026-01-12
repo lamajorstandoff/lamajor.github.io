@@ -1,4 +1,4 @@
-/* Updated: 12.01.2026, 22:47:25 */
+/* Updated: 12.01.2026, 23:57:41 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 0,
@@ -67,15 +67,15 @@ const teamData = {
         "losses": 0
     },
     "A1one Team": {
-        "points": 0,
+        "points": 1,
         "logo": "https://tlab.pro/images/players/c3923dfc997e45cea6bc5c93a89e3030.jpg",
         "players": [
             {
                 "nick": "Reed",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "1.18",
+                "k": 13,
+                "d": 11,
+                "a": 2,
                 "firstName": "Норик",
                 "lastName": "Комитасян",
                 "age": "13",
@@ -85,10 +85,10 @@ const teamData = {
             },
             {
                 "nick": "black boy",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "1.86",
+                "k": 13,
+                "d": 7,
+                "a": 1,
                 "firstName": "Тимофей",
                 "lastName": "Аксентьев",
                 "age": "13",
@@ -96,7 +96,8 @@ const teamData = {
                 "countryEmoji": "ru",
                 "photo": ""
             }
-        ]
+        ],
+        "wins": 1
     },
     "XZease Team": {
         "points": 0,
@@ -182,9 +183,9 @@ const teamData = {
             },
             {
                 "nick": "Brat1shka",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
+                "kd": "1.08",
+                "k": 28,
+                "d": 26,
                 "a": 0,
                 "firstName": "Денис",
                 "lastName": "Дубина",
@@ -193,7 +194,8 @@ const teamData = {
                 "countryEmoji": "ua",
                 "photo": ""
             }
-        ]
+        ],
+        "losses": 1
     },
     "Elite": {
         "points": 0,
