@@ -1,4 +1,4 @@
-/* Updated: 12.01.2026, 18:27:15 */
+/* Updated: 12.01.2026, 22:47:25 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 0,
@@ -136,10 +136,10 @@ const teamData = {
         "players": [
             {
                 "nick": "EnouragE",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "1.18",
+                "k": 26,
+                "d": 22,
+                "a": 2,
                 "firstName": "Александр",
                 "lastName": "Белов",
                 "age": "15",
@@ -148,19 +148,20 @@ const teamData = {
                 "photo": ""
             },
             {
-                "nick": "inv1sible",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
-                "firstName": "Егор",
-                "lastName": "Зимин",
+                "nick": "Warnezes",
+                "kd": "1.78",
+                "k": 32,
+                "d": 18,
+                "a": 3,
+                "firstName": "Максим",
+                "lastName": "Коваленко",
                 "age": "14",
                 "city": "Москва",
-                "countryEmoji": "ru",
+                "countryEmoji": "ua",
                 "photo": ""
             }
-        ]
+        ],
+        "wins": 1
     },
     "Angels of Death": {
         "points": 0,
@@ -231,11 +232,11 @@ const teamData = {
         "logo": "https://tlab.pro/images/tournaments/0eab1146eccd4a9db9b75a8a09fe0e63.png",
         "players": [
             {
-                "nick": "DRACHOMEN",
-                "kd": "0.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "nick": "KRUTOY PATRIK",
+                "kd": "0.69",
+                "k": 20,
+                "d": 29,
+                "a": 3,
                 "firstName": "Илья",
                 "lastName": "Метрафанов",
                 "age": "16",
@@ -245,10 +246,10 @@ const teamData = {
             },
             {
                 "nick": "fntx",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "0.72",
+                "k": 21,
+                "d": 29,
+                "a": 6,
                 "firstName": "Денис",
                 "lastName": "Филиппов",
                 "age": "17",
@@ -256,7 +257,8 @@ const teamData = {
                 "countryEmoji": "ru",
                 "photo": ""
             }
-        ]
+        ],
+        "losses": 1
     }
 };
 
@@ -274,11 +276,4 @@ const mvpData = {
     "teamLogo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
 };
 
-let matchesData = [
-    {
-        "team1": "A1one Team",
-        "team2": "Angels of Death",
-        "date": "12 Янв",
-        "time": "22:30"
-    }
-];
+let matchesData = [];
