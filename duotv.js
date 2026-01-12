@@ -1,6 +1,46 @@
 // 1. ДАННЫЕ ВЫНЕСЕНЫ НАВЕРХ (теперь они видны везде)
 document.addEventListener('DOMContentLoaded', () => {
 
+/* Добавьте в document.addEventListener('DOMContentLoaded', () => { ... }) */
+
+function renderMatches() {
+    const container = document.getElementById('matches-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    if (matchesData.length === 0) {
+        container.innerHTML = '<div style="color:var(--text-dim); font-size:14px;">Пока нет запланированных матчей</div>';
+        return;
+    }
+
+    matchesData.forEach(match => {
+        const t1 = teamData[match.team1] || { logo: '', name: match.team1 };
+        const t2 = teamData[match.team2] || { logo: '', name: match.team2 };
+
+        const card = document.createElement('div');
+        card.className = 'match-card-new';
+        card.innerHTML = `
+            <div class="match-info-top">${match.date} • ${match.time}</div>
+            <div class="match-teams-row">
+                <div class="m-team-side">
+                    <img src="${t1.logo}" alt="">
+                    <span>${match.team1}</span>
+                </div>
+                <div class="vs-label">VS</div>
+                <div class="m-team-side">
+                    <img src="${t2.logo}" alt="">
+                    <span>${match.team2}</span>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+// Вызовите ее вместе с renderLeaderboard
+renderMatches();
+
 function renderLeaderboard() {
     const leaderboardContainer = document.getElementById('leaderboard');
     if (!leaderboardContainer) return;
