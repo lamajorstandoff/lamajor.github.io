@@ -1,4 +1,4 @@
-/* Updated: 12.01.2026, 17:14:08 */
+/* Updated: 12.01.2026, 18:18:04 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 0,
@@ -31,7 +31,7 @@ const teamData = {
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png"
             }
         ],
-        "wins": 10
+        "wins": 0
     },
     "Farmit": {
         "points": 0,
@@ -64,7 +64,7 @@ const teamData = {
                 "photo": ""
             }
         ],
-        "losses": 100
+        "losses": 0
     },
     "A1one Team": {
         "points": 0,
@@ -273,12 +273,3 @@ const mvpData = {
     "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png",
     "teamLogo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
 };
-
-let matchesData = [
-    {
-        "team1": "A1one Team",
-        "team2": "Angels of Death",
-        "date": "12 Янв",
-        "time": "22:30"
-    }
-];
