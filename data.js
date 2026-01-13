@@ -100,7 +100,7 @@ const teamData = {
         "wins": 1
     },
     "XZease Team": {
-        "points": 0,
+        "points": 1,
         "logo": "https://tlab.pro/images/players/4642a027ded5418a938edd5aed3f2d02.jpg",
         "players": [
             {
