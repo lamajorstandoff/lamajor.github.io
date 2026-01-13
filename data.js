@@ -1,4 +1,4 @@
-/* Updated: 12.01.2026, 23:57:41 */
+/* Updated: 13.01.2026, 20:04:45 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 0,
@@ -105,9 +105,9 @@ const teamData = {
         "players": [
             {
                 "nick": "Wago_120fps",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
+                "kd": "2.15",
+                "k": 28,
+                "d": 13,
                 "a": 0,
                 "firstName": "Влад",
                 "lastName": "Челюканов",
@@ -118,10 +118,10 @@ const teamData = {
             },
             {
                 "nick": "f1tre",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "0.86",
+                "k": 18,
+                "d": 21,
+                "a": 2,
                 "firstName": "",
                 "lastName": "",
                 "age": "",
@@ -203,10 +203,10 @@ const teamData = {
         "players": [
             {
                 "nick": "yumi",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "0.95",
+                "k": 18,
+                "d": 19,
+                "a": 6,
                 "firstName": "",
                 "lastName": "",
                 "age": "",
@@ -216,10 +216,10 @@ const teamData = {
             },
             {
                 "nick": "yoshi",
-                "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "kd": "0.83",
+                "k": 15,
+                "d": 18,
+                "a": 7,
                 "firstName": "",
                 "lastName": "",
                 "age": "",
