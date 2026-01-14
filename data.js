@@ -265,16 +265,16 @@ const teamData = {
 };
 
 const mvpData = {
-    "nick": "S1ence",
-    "k": 0,
-    "d": 0,
+    "nick": "Wago_120fps",
+    "k": 28,
+    "d": 13,
     "a": 0,
-    "firstName": "Альберт",
-    "lastName": "Егоров",
-    "age": "15",
-    "city": "Чебоксары",
+    "firstName": "Влад",
+    "lastName": "Челюканов",
+    "age": "13",
+    "city": "Рязань",
     "countryCode": "ru",
-    "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png",
+    "photo": "https://png.klev.club/uploads/posts/2024-06/png-klev-club-4zit-p-neizvestnii-chelovek-png-20.png",
     "teamLogo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
 };
 
