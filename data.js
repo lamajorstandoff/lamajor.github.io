@@ -265,16 +265,16 @@ const teamData = {
 };
 
 const mvpData = {
-    "nick": "Wago_120fps",
-    "k": 28,
-    "d": 13,
-    "a": 0,
-    "firstName": "Влад",
-    "lastName": "Челюканов",
-    "age": "13",
-    "city": "Рязань",
+    "nick": "hakuji",
+    "k": 22,
+    "d": 9,
+    "a": 1,
+    "firstName": "Андриян",
+    "lastName": "Егоров",
+    "age": "17",
+    "city": "Чебоксары",
     "countryCode": "ru",
-    "photo": "https://png.klev.club/uploads/posts/2024-06/png-klev-club-4zit-p-neizvestnii-chelovek-png-20.png",
+    "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png",
     "teamLogo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
 };
 
