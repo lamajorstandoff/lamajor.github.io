@@ -228,7 +228,7 @@ const teamData = {
                 "countryEmoji": "eu",
                 "photo": ""
             }
-        ]
+        ],
         "losses": 1
     },
     "MAINLAFT": {
