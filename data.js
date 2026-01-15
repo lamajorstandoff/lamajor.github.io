@@ -129,7 +129,8 @@ const teamData = {
                 "countryEmoji": "eu",
                 "photo": ""
             }
-        ]
+        ],
+        "wins": 1
     },
     "Domed Squad": {
         "points": 1,
@@ -228,6 +229,7 @@ const teamData = {
                 "photo": ""
             }
         ]
+        "losses": 1
     },
     "MAINLAFT": {
         "points": 0,
