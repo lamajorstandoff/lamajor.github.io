@@ -31,7 +31,7 @@ const teamData = {
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png"
             }
         ],
-        "wins": 0
+        "wins": 1
     },
     "Farmit": {
         "points": 0,
@@ -64,7 +64,7 @@ const teamData = {
                 "photo": ""
             }
         ],
-        "losses": 0
+        "losses": 1
     },
     "A1one Team": {
         "points": 1,
