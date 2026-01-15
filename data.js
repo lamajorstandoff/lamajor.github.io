@@ -1,15 +1,15 @@
 /* Updated: 13.01.2026, 20:04:45 */
 const teamData = {
     "LUXIA ESPORTS": {
-        "points": 0,
+        "points": 1,
         "logo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png",
         "players": [
             {
                 "nick": "hakuji",
                 "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "k": 22,
+                "d": 9,
+                "a": 1,
                 "firstName": "Андриян",
                 "lastName": "Егоров",
                 "age": "17",
@@ -20,9 +20,9 @@ const teamData = {
             {
                 "nick": "S1ence",
                 "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "k": 10,
+                "d": 16,
+                "a": 1,
                 "firstName": "Альберт",
                 "lastName": "Егоров",
                 "age": "15",
@@ -38,10 +38,10 @@ const teamData = {
         "logo": "https://tlab.pro/images/players/d4219725df8e4b9882b920b58365161b.jpg",
         "players": [
             {
-                "nick": "Toxic? FERNANDO",
+                "nick": "Samvel_Yakudza",
                 "kd": "1.00",
-                "k": 0,
-                "d": 0,
+                "k": 7,
+                "d": 17,
                 "a": 0,
                 "firstName": "",
                 "lastName": "",
@@ -51,11 +51,11 @@ const teamData = {
                 "photo": ""
             },
             {
-                "nick": "Tt: Samyrai",
+                "nick": "Immortal",
                 "kd": "1.00",
-                "k": 0,
-                "d": 0,
-                "a": 0,
+                "k": 18,
+                "d": 15,
+                "a": 3,
                 "firstName": "",
                 "lastName": "",
                 "age": "",
