@@ -1,4 +1,4 @@
-/* Updated: 13.01.2026, 20:04:45 */
+/* Updated: 19.01.2026, 02:23:19 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 1,
@@ -15,7 +15,8 @@ const teamData = {
                 "age": "17",
                 "city": "Чебоксары",
                 "countryEmoji": "ru",
-                "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png"
+                "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png",
+                "awards": []
             },
             {
                 "nick": "S1ence",
@@ -28,10 +29,13 @@ const teamData = {
                 "age": "15",
                 "city": "Чебоксары",
                 "countryEmoji": "ru",
-                "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png"
+                "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png",
+                "awards": []
             }
         ],
-        "wins": 1
+        "wins": 1,
+        "status": "",
+        "awards": []
     },
     "Farmit": {
         "points": 0,
@@ -48,7 +52,8 @@ const teamData = {
                 "age": "",
                 "city": "",
                 "countryEmoji": "eu",
-                "photo": ""
+                "photo": "",
+                "awards": []
             },
             {
                 "nick": "Immortal",
@@ -61,10 +66,13 @@ const teamData = {
                 "age": "",
                 "city": "",
                 "countryEmoji": "eu",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "losses": 1
+        "losses": 1,
+        "status": "dq",
+        "awards": []
     },
     "A1one Team": {
         "points": 1,
@@ -81,7 +89,8 @@ const teamData = {
                 "age": "13",
                 "city": "Санкт-Петербург",
                 "countryEmoji": "ru",
-                "photo": ""
+                "photo": "",
+                "awards": []
             },
             {
                 "nick": "black boy",
@@ -94,10 +103,12 @@ const teamData = {
                 "age": "13",
                 "city": "Санкт-Петербург",
                 "countryEmoji": "ru",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "wins": 1
+        "wins": 1,
+        "awards": []
     },
     "XZease Team": {
         "points": 1,
@@ -114,7 +125,8 @@ const teamData = {
                 "age": "13",
                 "city": "Рязань",
                 "countryEmoji": "ru",
-                "photo": ""
+                "photo": "",
+                "awards": []
             },
             {
                 "nick": "f1tre",
@@ -127,10 +139,12 @@ const teamData = {
                 "age": "",
                 "city": "",
                 "countryEmoji": "eu",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "wins": 1
+        "wins": 1,
+        "awards": []
     },
     "Domed Squad": {
         "points": 1,
@@ -147,7 +161,8 @@ const teamData = {
                 "age": "15",
                 "city": "Краснодар",
                 "countryEmoji": "ru",
-                "photo": ""
+                "photo": "",
+                "awards": []
             },
             {
                 "nick": "Warnezes",
@@ -160,10 +175,12 @@ const teamData = {
                 "age": "14",
                 "city": "Киев",
                 "countryEmoji": "ua",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "wins": 1
+        "wins": 1,
+        "awards": []
     },
     "Angels of Death": {
         "points": 0,
@@ -180,7 +197,8 @@ const teamData = {
                 "age": "10",
                 "city": "Львов",
                 "countryEmoji": "ua",
-                "photo": ""
+                "photo": "",
+                "awards": []
             },
             {
                 "nick": "Brat1shka",
@@ -193,10 +211,13 @@ const teamData = {
                 "age": "10",
                 "city": "Львов",
                 "countryEmoji": "ua",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "losses": 1
+        "losses": 1,
+        "status": "eliminated",
+        "awards": []
     },
     "Elite": {
         "points": 0,
@@ -213,7 +234,8 @@ const teamData = {
                 "age": "",
                 "city": "",
                 "countryEmoji": "eu",
-                "photo": ""
+                "photo": "",
+                "awards": []
             },
             {
                 "nick": "yoshi",
@@ -226,10 +248,13 @@ const teamData = {
                 "age": "",
                 "city": "",
                 "countryEmoji": "eu",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "losses": 1
+        "losses": 1,
+        "status": "eliminated",
+        "awards": []
     },
     "MAINLAFT": {
         "points": 0,
@@ -246,7 +271,8 @@ const teamData = {
                 "age": "16",
                 "city": "",
                 "countryEmoji": "ru",
-                "photo": "https://psv4.userapi.com/s/v1/d2/VmOPKOQsoahcD02DcW0hxmiRWtns8ZacTKa49eAL2ufZ1OKfU54J8eVERSwk0iZaJ5KWkBmcq0BFcsA5K1iMmX94J515b6DjD8pOuhVe7695jYjQ98BEmxZ-lRVHuylpiJ7Q-bJRClO3/Falcons_DRACHOMEN.png"
+                "photo": "https://psv4.userapi.com/s/v1/d2/VmOPKOQsoahcD02DcW0hxmiRWtns8ZacTKa49eAL2ufZ1OKfU54J8eVERSwk0iZaJ5KWkBmcq0BFcsA5K1iMmX94J515b6DjD8pOuhVe7695jYjQ98BEmxZ-lRVHuylpiJ7Q-bJRClO3/Falcons_DRACHOMEN.png",
+                "awards": []
             },
             {
                 "nick": "fntx",
@@ -259,10 +285,13 @@ const teamData = {
                 "age": "17",
                 "city": "",
                 "countryEmoji": "ru",
-                "photo": ""
+                "photo": "",
+                "awards": []
             }
         ],
-        "losses": 1
+        "losses": 1,
+        "status": "eliminated",
+        "awards": []
     }
 };
 
@@ -280,4 +309,17 @@ const mvpData = {
     "teamLogo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png"
 };
 
-let matchesData = [];
+let matchesData = [
+    {
+        "team1": "LUXIA ESPORTS",
+        "team2": "A1one Team",
+        "date": "Неизв.",
+        "time": "Неизв."
+    },
+    {
+        "team1": "XZease Team",
+        "team2": "Domed Squad",
+        "date": "Неизв.",
+        "time": "Неизв."
+    }
+];

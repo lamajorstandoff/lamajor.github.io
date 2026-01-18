@@ -112,8 +112,8 @@ nav a:hover { color: var(--gold); }
 
 .match-group { display: flex; flex-direction: column; gap: 20px; height: 100%; }
 
-.spacer-upper-r2 { padding-top: 45px; gap: 90px; }
-.spacer-upper-r3 { padding-top: 110px; }
+.spacer-upper-r2 { padding-top: 85px; gap: 90px; }
+.spacer-upper-r3 { padding-top: 170px; }
 
 .spacer-loser-r2 { padding-top: 0px; gap: 20px; }
 .spacer-loser-r3 { padding-top: 50px; }
@@ -155,6 +155,7 @@ nav a:hover { color: var(--gold); }
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
+    overflow-y: auto;        /* Разрешаем вертикальную прокрутку */;
 }
 
 .modal-overlay.active {
@@ -749,4 +750,602 @@ nav a:hover { color: var(--gold); }
     font-size: 14px;
     color: var(--text-dim);
     opacity: 0.5;
+}
+
+/* --- Стили для статусов команд --- */
+.status-badge-mini {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-left: 8px;
+    font-family: 'Unbounded', sans-serif;
+    vertical-align: middle;
+}
+
+/* Стиль для выбывших (Серый) */
+.status-eliminated {
+    background: rgba(255, 255, 255, 0.1);
+    color: #666;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Стиль для дисквалифицированных (Красный) */
+.status-dq {
+    background: rgba(255, 50, 50, 0.15);
+    color: #ff5555;
+    border: 1px solid rgba(255, 50, 50, 0.3);
+}
+
+/* Стиль для победителей (Золотой) */
+.status-winner {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
+}
+
+/* --- Стили для наград команд --- */
+.team-awards-container {
+    margin-bottom: 45px;
+    padding-bottom: 40px;
+    border-bottom: 10px solid var(--border);
+}
+
+.awards-title {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: 'Unbounded';
+    letter-spacing: 1px;
+}
+
+.awards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.award-item {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    transition: 0.3s;
+}
+
+.award-item:hover, .award-item.active {
+    border-color: var(--gold);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.award-img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+
+/* Всплывающее название при клике */
+.award-tooltip {
+    position: absolute;
+    bottom: 60px; /* Появляется над квадратом */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #000;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* Треугольничек внизу подсказки */
+.award-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--gold) transparent transparent transparent;
+}
+
+.award-item.active .award-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* === ИСПРАВЛЕНИЕ МОДАЛЬНОГО ОКНА ДЛЯ МОБИЛЬНЫХ === */
+@media (max-width: 768px) {
+    /* 1. Фикс выхода модального окна за границы экрана */
+    .modal-content {
+        max-height: 85vh; /* Ограничиваем высоту (85% от высоты экрана) */
+        overflow-y: auto; /* Включаем прокрутку внутри окна */
+        width: 95%;       /* Делаем окно чуть шире на мобилках */
+        padding: 20px;    /* Уменьшаем внутренние отступы */
+        margin: 0 auto;   /* Центрируем */
+    }
+
+    /* 2. Фикс наград и тултипов */
+    .award-item {
+        /* На мобильных убираем ховер-эффект, чтобы подсказка появлялась при клике (уже есть в JS) */
+        position: relative;
+    }
+
+    .award-tooltip {
+        /* Разрешаем перенос текста */
+        white-space: normal; 
+        
+        /* Ограничиваем ширину подсказки, чтобы она не была слишком широкой */
+        width: 120px; 
+        min-width: auto;
+        
+        /* Меняем позиционирование, чтобы текст не улетал влево/вправо */
+        left: 50%;
+        transform: translateX(-50%) translateY(5px);
+        bottom: auto;
+        top: 100%; /* Показываем подсказку ПОД иконкой, а не над ней (так удобнее пальцем) */
+        
+        /* Стили текста */
+        font-size: 10px;
+        line-height: 1.2;
+        padding: 5px 8px;
+        z-index: 100;
+    }
+    
+    /* Корректируем треугольничек подсказки, чтобы он смотрел вверх */
+    .award-tooltip::after {
+        top: auto;
+        bottom: 100%;
+        border-color: transparent transparent var(--gold) transparent;
+    }
+}
+
+/* Центрирование контейнера наград */
+.team-awards-container {
+    text-align: center; /* Центрируем заголовок */
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+/* Стили заголовка наград */
+.awards-title {
+    font-family: 'Unbounded';
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-align: center; /* Принудительно по центру */
+}
+
+/* Центрирование самой сетки с иконками */
+.awards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Это выровняет иконки по центру */
+    gap: 15px;
+}
+
+/* Настройка самих элементов наград */
+.award-item {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- Стили для статистики команды в модальном окне --- */
+.team-quick-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Три колонки */
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.t-stat-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.t-stat-value {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    z-index: 2;
+}
+
+.t-stat-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-top: 4px;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+/* Специфичные цвета для каждой карточки */
+
+/* Победы - Зеленый акцент */
+.t-stat-item.is-win {
+    background: linear-gradient(180deg, rgba(76, 175, 80, 0.1) 0%, rgba(20, 20, 20, 0.5) 100%);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+.t-stat-item.is-win .t-stat-value { color: #4caf50; }
+
+/* Поражения - Красный акцент */
+.t-stat-item.is-loss {
+    background: linear-gradient(180deg, rgba(244, 67, 54, 0.1) 0%, rgba(20, 20, 20, 0.5) 100%);
+    border-color: rgba(244, 67, 54, 0.3);
+}
+.t-stat-item.is-loss .t-stat-value { color: #f44336; }
+
+/* Матчи - Белый/Серый акцент */
+.t-stat-item.is-matches {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(20, 20, 20, 0.5) 100%);
+}
+
+/* Адаптив для мобильных: шрифт чуть меньше */
+@media (max-width: 600px) {
+    .t-stat-value { font-size: 16px; }
+    .t-stat-label { font-size: 9px; }
+}
+
+@media (max-width: 600px) {
+    /* 1. Перестраиваем шапку модалки: лого сверху, текст под ним */
+    .team-modal-header {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 10px;
+    }
+
+    /* 2. Центрируем логотип и делаем его крупнее */
+    .team-modal-logo {
+        width: 100px !important;
+        height: 100px !important;
+        margin: 0 auto;
+    }
+
+    /* 3. Статистика: делаем её на всю ширину */
+    .team-quick-stats {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Три равные колонки */
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    /* 4. Стили карточек статистики */
+    .t-stat-item {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 10px 5px !important;
+        min-width: 0; /* Чтобы не вылезало за границы */
+    }
+
+    .t-stat-value {
+        font-size: 18px !important;
+        display: block;
+        margin-bottom: 2px;
+    }
+
+    .t-stat-label {
+        font-size: 8px !important;
+        white-space: nowrap; /* Чтобы текст не переносился */
+    }
+
+    /* Убираем "Матчи" в отдельную строку, если хочешь акцент, 
+       но в 3 колонки (Победы | Матчи | Поражения) обычно смотрится чище */
+    
+    /* Дополнительно: подправляем заголовок названия команды */
+    #modalTeamName {
+        font-size: 24px !important;
+        margin-bottom: 5px;
+    }
+}
+
+/* --- Индивидуальные награды игроков --- */
+.player-awards-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px; /* Отступ от наград до статистики */
+    min-height: 10px;
+}
+
+.p-award-item {
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: help;
+    transition: 0.3s;
+}
+
+.p-award-item:hover {
+    border-color: var(--gold);
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.p-award-img {
+    width: 80%;
+    height: 70%;
+    object-fit: contain;
+}
+
+/* Тултип (подсказка) для наград игрока */
+.p-award-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    background: #000;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    z-index: 20;
+    font-family: 'Unbounded';
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.p-award-item:hover .p-award-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+@media (max-width: 650px) {
+    /* Уменьшаем отступ после "Город • Возраст" */
+    .p-sub-info { 
+        margin-bottom: 15px !important; 
+    }
+
+    /* Уменьшаем отступ самого списка наград */
+    .player-awards-list { 
+        margin-bottom: 10px !important; 
+    }
+
+    /* Уменьшаем верхний отступ сетки статистики */
+    .profile-stats-grid-detailed { 
+        margin-top: 10px !important; 
+    }
+    
+    /* Дополнительно: само модальное окно должно иметь автоматическую высоту */
+    .modal-content {
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+/* === МОБИЛЬНАЯ АДАПТАЦИЯ ПРОФИЛЯ ИГРОКА === */
+@media (max-width: 650px) {
+
+    /* 1. Настройка самого окна: разрешаем прокрутку и убираем лишнее */
+    #playerProfileModal .modal-content.profile-modal {
+        max-height: 85vh !important; /* Окно не выше 85% экрана */
+        overflow-y: auto !important; /* Включаем скролл, если не влезает */
+        width: 95% !important;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    /* 2. Контейнер контента: убираем фиксированную высоту */
+    .profile-container {
+        flex-direction: column !important;
+        min-height: auto !important; /* ВАЖНО: убирает растягивание */
+        display: block !important;
+        height: auto !important;
+    }
+
+    /* 3. Фотография: делаем её компактнее */
+    .profile-photo-side {
+        width: 100% !important;
+        height: 200px !important; /* Уменьшаем высоту фото (было 250px) */
+        min-height: 200px !important;
+    }
+
+    /* 4. Блок с информацией: уменьшаем отступы внутри */
+    .profile-info-side {
+        width: 100% !important;
+        padding: 20px 15px !important; /* Компактные отступы по бокам */
+        display: block !important; /* Убираем flex, чтобы убрать лишние дыры */
+    }
+
+    /* 5. Исправляем гигантские отступы между блоками */
+    .p-nick-badge {
+        margin-bottom: 5px !important;
+        font-size: 12px !important;
+    }
+
+    .profile-info-side h2 {
+        font-size: 22px !important; /* Чуть меньше шрифт имени */
+        margin-bottom: 2px !important;
+    }
+
+    /* Строка "Возраст • Город" */
+    .p-sub-info {
+        font-size: 13px !important;
+        margin-bottom: 15px !important; /* Уменьшили отступ до наград (было 30px) */
+    }
+
+    /* 6. Список наград */
+    .player-awards-list {
+        margin-bottom: 15px !important; /* Отступ до статистики */
+        gap: 6px !important;
+    }
+
+    .p-award-item {
+        width: 65px !important; /* Уменьшаем иконки наград */
+        height: 65px !important;
+    }
+
+    /* 7. Сетка статистики: убираем "margin-top: auto", который делал дыру */
+    .profile-stats-grid-detailed {
+        margin-top: 0 !important; /* Приклеиваем к контенту сверху */
+        gap: 8px !important;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Строго 2 колонки */
+    }
+
+    /* Ячейки статистики */
+    .p-stat-box {
+        padding: 10px !important;
+    }
+
+    .p-val {
+        font-size: 16px !important;
+    }
+
+    /* Кнопка закрытия */
+    .close-modal-alt {
+        top: 10px !important;
+        right: 10px !important;
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 18px !important;
+        background: rgba(0,0,0,0.6) !important; /* Чтобы было видно на светлом фото */
+    }
+}
+
+@media (max-width: 650px) {
+    /* 1. Настройка фона модалки: разрешаем прокрутку именно здесь */
+    #playerProfileModal.modal {
+        display: flex !important;
+        align-items: flex-start !important; /* Прижимаем к верху, чтобы был ход для скролла */
+        justify-content: center !important;
+        padding: 20px 10px !important;
+        overflow-y: auto !important; /* Включаем скролл на самом фоне */
+        -webkit-overflow-scrolling: touch; /* Плавный скролл для iPhone */
+    }
+
+    /* 2. Настройка самой карточки */
+    #playerProfileModal .modal-content.profile-modal {
+        position: relative !important;
+        height: auto !important; /* Высота зависит от контента */
+        max-height: none !important; /* Убираем ограничение высоты */
+        margin-top: 20px !important; /* Отступ сверху */
+        margin-bottom: 40px !important; /* Отступ снизу, чтобы не прилипало к краю */
+        width: 100% !important;
+        display: block !important;
+        overflow: visible !important; /* Контент больше не обрезается внутри */
+    }
+
+    /* 3. Контейнер внутри карточки */
+    .profile-container {
+        display: block !important; /* Убираем flex, чтобы элементы шли друг за другом */
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    /* 4. Фотография */
+    .profile-photo-side {
+        width: 100% !important;
+        height: 220px !important;
+        position: relative !important;
+    }
+
+    /* 5. Блок информации */
+    .profile-info-side {
+        width: 100% !important;
+        padding: 20px 15px 30px 15px !important; /* Увеличили нижний отступ */
+        box-sizing: border-box !important;
+    }
+
+    /* 6. Сетка статистики: делаем 2 на 2 */
+    .profile-stats-grid-detailed {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        margin-top: 20px !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* 7. Награды: делаем перенос строк, если их много */
+    .player-awards-list {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* 8. Кнопка закрытия: фиксируем, чтобы всегда была под рукой */
+    .close-modal-alt {
+        position: absolute !important;
+        top: 15px !important;
+        right: 15px !important;
+        z-index: 100 !important;
+        background: rgba(0,0,0,0.5) !important;
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+    }
+}
+
+@media (max-width: 650px) {
+    /* Центрируем блок с наградами */
+    .player-awards-list {
+        justify-content: center !important; /* Центрирует иконки по горизонтали */
+        flex-wrap: wrap !important;        /* Позволяет наградам переноситься на новую строку, если их много */
+        gap: 10px !important;               /* Расстояние между наградами */
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* Если вы хотите, чтобы имя и ник тоже были по центру на телефоне, добавьте это: */
+    .profile-info-side {
+        text-align: center !important;     /* Центрирует текст (имя, возраст) */
+        align-items: center !important;    /* Центрирует flex-элементы (никнейм) */
+    }
+
+    /* Центрируем плашку с ником */
+    .p-nick-badge {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
 }
