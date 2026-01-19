@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             prizeDiv.style.marginTop = '5px';
             prizeDiv.innerHTML = `
                 <div class="prize-tag">
-                    <span class="prize-label">Total winnings:</span>
+                    <span class="prize-label">Призовые:</span>
                     <img src="https://totsamuyprod.github.io/recources/1000golda.png" class="prize-icon">
                     <span class="prize-amount">${data.winnings}</span>
                 </div>`;
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const prizeHTML = document.createElement('div');
                 prizeHTML.className = 'prize-tag';
                 prizeHTML.innerHTML = `
-                    <span class="prize-label">Total winnings:</span>
+                    <span class="prize-label">Призовые:</span>
                     <img src="https://totsamuyprod.github.io/recources/1000golda.png" class="prize-icon">
                     <span class="prize-amount">${winnings}</span>
                 `;
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const prizeHTML = document.createElement('div');
                     prizeHTML.className = 'prize-tag';
                     prizeHTML.innerHTML = `
-                        <span class="prize-label">Total winnings:</span>
+                        <span class="prize-label">Призовые:</span>
                         <img src="https://totsamuyprod.github.io/recources/1000golda.png" class="prize-icon">
                         <span class="prize-amount">${p.winnings}</span>
                     `;
@@ -453,4 +453,5 @@ document.addEventListener('click', (e) => {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
+
 });
