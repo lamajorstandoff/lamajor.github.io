@@ -1,4 +1,4 @@
-/* Updated: 19.01.2026, 23:07:48 */
+/* Updated: 19.01.2026, 23:10:07 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 2,
@@ -17,7 +17,7 @@ const teamData = {
                 "countryEmoji": "ru",
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png",
                 "awards": [],
-                "winnings": "10000"
+                "winnings": ""
             },
             {
                 "nick": "S1ence",
@@ -38,7 +38,7 @@ const teamData = {
         "wins": 2,
         "status": "",
         "awards": [],
-        "winnings": 100000
+        "winnings": 0
     },
     "Farmit": {
         "points": 0,
@@ -185,7 +185,8 @@ const teamData = {
         "wins": 1,
         "awards": [],
         "losses": 1,
-        "winnings": 0
+        "winnings": 0,
+        "status": "eliminated"
     },
     "Angels of Death": {
         "points": 0,
