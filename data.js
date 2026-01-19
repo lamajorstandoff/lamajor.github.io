@@ -1,7 +1,7 @@
-/* Updated: 19.01.2026, 03:04:32 */
+/* Updated: 19.01.2026, 23:07:48 */
 const teamData = {
     "LUXIA ESPORTS": {
-        "points": 1,
+        "points": 2,
         "logo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png",
         "players": [
             {
@@ -17,7 +17,7 @@ const teamData = {
                 "countryEmoji": "ru",
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png",
                 "awards": [],
-                "winnings": "0"
+                "winnings": "10000"
             },
             {
                 "nick": "S1ence",
@@ -35,10 +35,10 @@ const teamData = {
                 "winnings": "0"
             }
         ],
-        "wins": 1,
+        "wins": 2,
         "status": "",
         "awards": [],
-        "winnings": 0
+        "winnings": 100000
     },
     "Farmit": {
         "points": 0,
@@ -183,7 +183,9 @@ const teamData = {
             }
         ],
         "wins": 1,
-        "awards": []
+        "awards": [],
+        "losses": 1,
+        "winnings": 0
     },
     "Angels of Death": {
         "points": 0,
@@ -315,14 +317,8 @@ const mvpData = {
 let matchesData = [
     {
         "team1": "LUXIA ESPORTS",
-        "team2": "A1one Team",
-        "date": "Неизв.",
-        "time": "Неизв."
-    },
-    {
-        "team1": "XZease Team",
         "team2": "Domed Squad",
-        "date": "Неизв.",
-        "time": "Неизв."
+        "date": "19 янв",
+        "time": "2:0"
     }
 ];
