@@ -1,4 +1,4 @@
-/* Updated: 19.01.2026, 23:22:34 */
+/* Updated: 19.01.2026, 23:26:43 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 2,
@@ -38,7 +38,7 @@ const teamData = {
         "wins": 2,
         "status": "",
         "awards": [],
-        "winnings": 100000
+        "winnings": 0
     },
     "Farmit": {
         "points": 0,
@@ -336,5 +336,11 @@ let matchesData = [
         "team2": "Domed Squad",
         "date": "19 янв",
         "time": "2:0"
+    },
+    {
+        "team1": "A1one Team",
+        "team2": "XZease Team",
+        "date": "неизв.",
+        "time": "неизв."
     }
 ];
