@@ -1,4 +1,4 @@
-/* Updated: 19.01.2026, 23:26:43 */
+/* Updated: 19.01.2026, 23:33:07 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 2,
@@ -168,7 +168,7 @@ const teamData = {
                 "awards": [
                     {
                         "name": "Полуфиналист LaMajor Duo 2026",
-                        "image": "https://i.imgur.com/2R2BMlu.png"
+                        "image": "https://i.imgur.com/DIui8Xf.png"
                     }
                 ]
             },
@@ -187,7 +187,7 @@ const teamData = {
                 "awards": [
                     {
                         "name": "Полуфиналист LaMajor Duo 2026",
-                        "image": "https://i.imgur.com/2R2BMlu.png"
+                        "image": "https://i.imgur.com/DIui8Xf.png"
                     }
                 ]
             }
@@ -196,7 +196,7 @@ const teamData = {
         "awards": [
             {
                 "name": "Полуфиналист LaMajor Duo 2026",
-                "image": "https://i.imgur.com/2R2BMlu.png"
+                "image": "https://i.imgur.com/DIui8Xf.png"
             }
         ],
         "losses": 1,
