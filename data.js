@@ -1,4 +1,4 @@
-/* Updated: 19.01.2026, 23:10:07 */
+/* Updated: 19.01.2026, 23:22:34 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 2,
@@ -6,10 +6,10 @@ const teamData = {
         "players": [
             {
                 "nick": "hakuji",
-                "kd": "2.44",
-                "k": 22,
-                "d": 9,
-                "a": 1,
+                "kd": "2.15",
+                "k": 58,
+                "d": 27,
+                "a": 2,
                 "firstName": "Андриян",
                 "lastName": "Егоров",
                 "age": "17",
@@ -21,10 +21,10 @@ const teamData = {
             },
             {
                 "nick": "S1ence",
-                "kd": "0.63",
-                "k": 10,
-                "d": 16,
-                "a": 1,
+                "kd": "1.25",
+                "k": 35,
+                "d": 28,
+                "a": 3,
                 "firstName": "Альберт",
                 "lastName": "Егоров",
                 "age": "15",
@@ -38,7 +38,7 @@ const teamData = {
         "wins": 2,
         "status": "",
         "awards": [],
-        "winnings": 0
+        "winnings": 100000
     },
     "Farmit": {
         "points": 0,
@@ -154,36 +154,51 @@ const teamData = {
         "logo": "https://tlab.pro/images/players/822fcfe3e2324b82a08da77e4d139fde.jpg",
         "players": [
             {
-                "nick": "EnouragE",
-                "kd": "1.18",
-                "k": 26,
-                "d": 22,
-                "a": 2,
+                "nick": "EncouragE",
+                "kd": "0.98",
+                "k": 47,
+                "d": 48,
+                "a": 1,
                 "firstName": "Александр",
                 "lastName": "Белов",
                 "age": "15",
                 "city": "Краснодар",
                 "countryEmoji": "ru",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Полуфиналист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/2R2BMlu.png"
+                    }
+                ]
             },
             {
                 "nick": "Warnezes",
-                "kd": "1.78",
-                "k": 32,
-                "d": 18,
-                "a": 3,
+                "kd": "1.10",
+                "k": 53,
+                "d": 48,
+                "a": 7,
                 "firstName": "Максим",
                 "lastName": "Коваленко",
                 "age": "14",
                 "city": "Киев",
                 "countryEmoji": "ua",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Полуфиналист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/2R2BMlu.png"
+                    }
+                ]
             }
         ],
         "wins": 1,
-        "awards": [],
+        "awards": [
+            {
+                "name": "Полуфиналист LaMajor Duo 2026",
+                "image": "https://i.imgur.com/2R2BMlu.png"
+            }
+        ],
         "losses": 1,
         "winnings": 0,
         "status": "eliminated"
@@ -303,9 +318,9 @@ const teamData = {
 
 const mvpData = {
     "nick": "hakuji",
-    "k": 22,
-    "d": 9,
-    "a": 1,
+    "k": 58,
+    "d": 27,
+    "a": 2,
     "firstName": "Андриян",
     "lastName": "Егоров",
     "age": "17",
