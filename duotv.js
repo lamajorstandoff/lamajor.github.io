@@ -7,8 +7,29 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!modal || !data) return;
 
-        // Название и лого
-        document.getElementById('modalTeamName').innerText = teamName;
+        // 1. Ставим название команды
+        const nameContainer = document.getElementById('modalTeamName');
+        nameContainer.innerText = teamName;
+
+        // 2. Логика призовых (Вставляем ПОСЛЕ заголовка, а не внутрь, чтобы не ломать верстку)
+        // Удаляем старую плашку, если есть
+        const oldPrize = modal.querySelector('.team-prize-wrapper');
+        if(oldPrize) oldPrize.remove();
+
+        if (data.winnings && Number(data.winnings) > 0) {
+            const prizeDiv = document.createElement('div');
+            prizeDiv.className = 'team-prize-wrapper'; // Обертка для позиционирования
+            prizeDiv.style.marginTop = '5px';
+            prizeDiv.innerHTML = `
+                <div class="prize-tag">
+                    <span class="prize-label">Total winnings:</span>
+                    <img src="https://totsamuyprod.github.io/recources/1000golda.png" class="prize-icon">
+                    <span class="prize-amount">${data.winnings}</span>
+                </div>`;
+            // Вставляем сразу после названия команды
+            nameContainer.parentNode.insertBefore(prizeDiv, nameContainer.nextSibling);
+        }
+        
         const logoImg = document.getElementById('modalTeamLogo');
         if(logoImg) logoImg.src = data.logo;
 
@@ -195,10 +216,41 @@ document.addEventListener('DOMContentLoaded', () => {
             
             document.getElementById('p-location').innerHTML = `
                 ${mvpData.city} 
-                <img src="https://flagcdn.com/w20/${mvpData.countryCode.toLowerCase()}.png" width="20" style="vertical-align: baseline;">
+                <img src="https://flagcdn.com/w20/${(mvpData.countryCode || 'ru').toLowerCase()}.png" width="20" style="vertical-align: baseline;">
             `;
             
-            // Очищаем награды, так как у MVP в базе их нет
+            // === PRIZE MONEY LOGIC (ИСПРАВЛЕНО) ===
+            const infoSide = document.querySelector('.profile-info-side');
+            // Удаляем старый тэг призовых
+            const oldPrize = infoSide.querySelector('.prize-tag');
+            if(oldPrize) oldPrize.remove();
+
+            // В MVP данных пока нет winnings в явном виде, поэтому можно искать игрока в командах
+            // Или брать из mvpData, если добавишь туда поле. 
+            // Сейчас ставим проверку на mvpData.winnings (добавь это поле в data.js или через админку, если хочешь)
+            let winnings = mvpData.winnings || 0;
+            
+            // Попытка найти игрока в командах, если в MVP данных нет призовых
+            if (!winnings) {
+                Object.values(teamData).forEach(t => {
+                    t.players.forEach(pl => {
+                        if (pl.nick === mvpData.nick) winnings = pl.winnings;
+                    });
+                });
+            }
+
+            if (winnings && Number(winnings) > 0) {
+                const prizeHTML = document.createElement('div');
+                prizeHTML.className = 'prize-tag';
+                prizeHTML.innerHTML = `
+                    <span class="prize-label">Total winnings:</span>
+                    <img src="https://totsamuyprod.github.io/recources/1000golda.png" class="prize-icon">
+                    <span class="prize-amount">${winnings}</span>
+                `;
+                const subInfo = document.querySelector('.p-sub-info');
+                subInfo.parentNode.insertBefore(prizeHTML, subInfo.nextSibling);
+            }
+            
             const awardsContainer = document.getElementById('p-awards-container');
             if(awardsContainer) awardsContainer.innerHTML = '';
 
@@ -248,7 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupModalClose('teamModal', null);
     setupModalClose('playerProfileModal', 'closeProfile');
 
-    // === ЛОГИКА СТРАНИЦЫ ИГРОКОВ (Поиск и Список) ===
+    // === ЛОГИКА СТРАНИЦЫ ИГРОКОВ ===
     const grid = document.getElementById('allPlayersGrid');
     const searchInput = document.getElementById('playerSearch');
     const sortButtons = document.querySelectorAll('.sort-btn');
@@ -263,7 +315,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const team = teamData[teamName];
             team.players.forEach(p => {
                 const kdValue = p.d > 0 ? (p.k / p.d) : p.k;
-                // ВАЖНО: передаем awards дальше
                 allPlayers.push({ 
                     ...p, 
                     teamName, 
@@ -318,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
 
-            // КЛИК ПО ИГРОКУ
+            // КЛИК ПО ИГРОКУ ИЗ СПИСКА
             card.addEventListener('click', () => {
                 const modal = document.getElementById('playerProfileModal');
                 
@@ -331,7 +382,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         <img src="https://flagcdn.com/w20/${(p.countryEmoji || 'ru').toLowerCase()}.png" width="18" style="vertical-align: baseline;">
                     `;
                 
-                // === РЕНДЕР НАГРАД ===
+                // === PRIZE MONEY (ДЛЯ СПИСКА) ===
+                const infoSide = document.querySelector('.profile-info-side');
+                const oldPrize = infoSide.querySelector('.prize-tag');
+                if(oldPrize) oldPrize.remove();
+
+                if (p.winnings && Number(p.winnings) > 0) {
+                    const prizeHTML = document.createElement('div');
+                    prizeHTML.className = 'prize-tag';
+                    prizeHTML.innerHTML = `
+                        <span class="prize-label">Total winnings:</span>
+                        <img src="https://totsamuyprod.github.io/recources/1000golda.png" class="prize-icon">
+                        <span class="prize-amount">${p.winnings}</span>
+                    `;
+                    const subInfo = document.querySelector('.p-sub-info');
+                    subInfo.parentNode.insertBefore(prizeHTML, subInfo.nextSibling);
+                }
+
                 const awardsContainer = document.getElementById('p-awards-container');
                 if (awardsContainer) {
                     awardsContainer.innerHTML = '';
@@ -378,7 +445,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPlayers();
 });
 
-// Глобальный обработчик закрытия (вынесен отдельно для надежности)
+// Глобальный обработчик закрытия
 document.addEventListener('click', (e) => {
     const modal = document.getElementById('playerProfileModal');
     if (!modal) return;

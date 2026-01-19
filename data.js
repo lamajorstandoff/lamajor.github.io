@@ -1,4 +1,4 @@
-/* Updated: 19.01.2026, 02:23:19 */
+/* Updated: 19.01.2026, 03:04:32 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 1,
@@ -6,7 +6,7 @@ const teamData = {
         "players": [
             {
                 "nick": "hakuji",
-                "kd": "1.00",
+                "kd": "2.44",
                 "k": 22,
                 "d": 9,
                 "a": 1,
@@ -16,11 +16,12 @@ const teamData = {
                 "city": "Чебоксары",
                 "countryEmoji": "ru",
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png",
-                "awards": []
+                "awards": [],
+                "winnings": "0"
             },
             {
                 "nick": "S1ence",
-                "kd": "1.00",
+                "kd": "0.63",
                 "k": 10,
                 "d": 16,
                 "a": 1,
@@ -30,12 +31,14 @@ const teamData = {
                 "city": "Чебоксары",
                 "countryEmoji": "ru",
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png",
-                "awards": []
+                "awards": [],
+                "winnings": "0"
             }
         ],
         "wins": 1,
         "status": "",
-        "awards": []
+        "awards": [],
+        "winnings": 0
     },
     "Farmit": {
         "points": 0,

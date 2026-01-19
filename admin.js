@@ -63,13 +63,17 @@ function initTeams() {
         const team = teamData[teamName];
         const currentStatus = team.status || '';
         
+        // Гарантируем, что поле winnings существует
+        const teamWinnings = team.winnings || 0;
+        
         if (!team.awards) team.awards = [];
 
         // Генерируем HTML для каждого игрока
         const playersHTML = team.players.map((p, idx) => {
             if (!p.awards) p.awards = [];
+            const playerWinnings = p.winnings || 0; // Призовые игрока
 
-            // HTML наград игрока
+            // HTML наград игрока (оставляем как было, код сокращен для читаемости)
             const playerAwardsHTML = p.awards.map((award, awIdx) => `
                 <div style="display: flex; gap: 5px; margin-top: 5px; align-items: center; background: rgba(0,0,0,0.3); padding: 5px; border-radius: 4px;">
                     <img src="${award.image}" style="width: 25px; height: 25px; object-fit: contain;">
@@ -88,6 +92,12 @@ function initTeams() {
                      <div class="form-group"><label>Nick</label><input type="text" class="form-control" value="${p.nick}" onchange="updatePlayer('${teamName}', ${idx}, 'nick', this.value)"></div>
                      <div class="form-group"><label>Age</label><input type="text" class="form-control" value="${p.age}" onchange="updatePlayer('${teamName}', ${idx}, 'age', this.value)"></div>
                 </div>
+                
+                <div class="form-group" style="background: rgba(255, 215, 0, 0.05); padding: 10px; border-radius: 6px; border: 1px solid rgba(255, 215, 0, 0.1);">
+                    <label style="color: #FFD700;">💰 Призовые игрока (Gold)</label>
+                    <input type="number" class="form-control" value="${playerWinnings}" onchange="updatePlayer('${teamName}', ${idx}, 'winnings', this.value)">
+                </div>
+
                 <div class="row-4">
                      <div class="form-group"><label>Kills</label><input type="number" class="form-control" value="${p.k}" onchange="updatePlayer('${teamName}', ${idx}, 'k', this.value)"></div>
                      <div class="form-group"><label>Deaths</label><input type="number" class="form-control" value="${p.d}" onchange="updatePlayer('${teamName}', ${idx}, 'd', this.value)"></div>
@@ -144,10 +154,14 @@ function initTeams() {
                     </select>
                 </div>
                 
-                 <div class="row-4" style="margin-top:10px;">
+                <div class="row-4" style="margin-top:10px;">
                     <div class="form-group">
                         <label style="color:var(--gold);">Очки (Points)</label>
                         <input type="number" class="form-control" value="${team.points}" onchange="updateTeamStat('${teamName}', 'points', Number(this.value))">
+                    </div>
+                    <div class="form-group" style="border: 1px solid #FFD700; border-radius: 8px; padding: 5px;">
+                        <label style="color: #FFD700;">💰 Prize (G)</label>
+                        <input type="number" class="form-control" value="${teamWinnings}" onchange="updateTeamStat('${teamName}', 'winnings', Number(this.value))">
                     </div>
                     <div class="form-group">
                         <label style="color:#4caf50;">Победы (Wins)</label>
@@ -219,14 +233,15 @@ function addNewTeam() {
     if(name && !teamData[name]) {
         teamData[name] = {
             points: 0,
+            winnings: 0, // <-- Добавлено
             wins: 0,
             losses: 0,
             logo: "https://via.placeholder.com/150",
             awards: [],
             status: "",
             players: [
-                { nick: "Player 1", kd: "0.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "ru", photo: "", awards: [] },
-                { nick: "Player 2", kd: "0.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "ru", photo: "", awards: [] }
+                { nick: "Player 1", winnings: 0, kd: "0.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "ru", photo: "", awards: [] },
+                { nick: "Player 2", winnings: 0, kd: "0.00", k: 0, d: 0, a: 0, firstName: "", lastName: "", age: "", city: "", countryEmoji: "ru", photo: "", awards: [] }
             ]
         };
         initTeams();
