@@ -1,4 +1,4 @@
-/* Updated: 19.01.2026, 23:33:07 */
+/* Updated: 22.01.2026, 00:02:01 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 2,
@@ -83,17 +83,22 @@ const teamData = {
         "players": [
             {
                 "nick": "Reed",
-                "kd": "1.18",
-                "k": 13,
-                "d": 11,
-                "a": 2,
+                "kd": "0.88",
+                "k": 36,
+                "d": 41,
+                "a": 7,
                 "firstName": "Норик",
                 "lastName": "Комитасян",
                 "age": "13",
                 "city": "Санкт-Петербург",
                 "countryEmoji": "ru",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Полуфиналист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/DIui8Xf.png"
+                    }
+                ]
             },
             {
                 "nick": "black boy",
@@ -107,22 +112,53 @@ const teamData = {
                 "city": "Санкт-Петербург",
                 "countryEmoji": "ru",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Полуфиналист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/DIui8Xf.png"
+                    }
+                ]
+            },
+            {
+                "nick": "tt:@qwist1k",
+                "kd": "0.80",
+                "k": 25,
+                "d": 3,
+                "a": 31,
+                "firstName": "",
+                "lastName": "",
+                "age": "",
+                "city": "",
+                "countryEmoji": "eu",
+                "photo": "",
+                "awards": [
+                    {
+                        "name": "Полуфиналист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/DIui8Xf.png"
+                    }
+                ]
             }
         ],
         "wins": 1,
-        "awards": []
+        "awards": [
+            {
+                "name": "Полуфиналист LaMajor Duo 2026",
+                "image": "https://i.imgur.com/DIui8Xf.png"
+            }
+        ],
+        "losses": 1,
+        "status": "eliminated"
     },
     "XZease Team": {
-        "points": 1,
+        "points": 2,
         "logo": "https://tlab.pro/images/players/4642a027ded5418a938edd5aed3f2d02.jpg",
         "players": [
             {
                 "nick": "Wago_120fps",
-                "kd": "2.15",
-                "k": 28,
-                "d": 13,
-                "a": 0,
+                "kd": "1.45",
+                "k": 58,
+                "d": 40,
+                "a": 2,
                 "firstName": "Влад",
                 "lastName": "Челюканов",
                 "age": "13",
@@ -144,9 +180,23 @@ const teamData = {
                 "countryEmoji": "eu",
                 "photo": "",
                 "awards": []
+            },
+            {
+                "nick": "wonderl9ze [Замена]",
+                "kd": "1.72",
+                "k": 31,
+                "d": 18,
+                "a": 7,
+                "firstName": "Аслан",
+                "lastName": "Кайхан",
+                "age": "13",
+                "city": "Рязань",
+                "countryEmoji": "ru",
+                "photo": "",
+                "awards": []
             }
         ],
-        "wins": 1,
+        "wins": 2,
         "awards": []
     },
     "Domed Squad": {
@@ -340,7 +390,7 @@ let matchesData = [
     {
         "team1": "A1one Team",
         "team2": "XZease Team",
-        "date": "неизв.",
-        "time": "неизв."
+        "date": "22 янв",
+        "time": "2:0"
     }
 ];
