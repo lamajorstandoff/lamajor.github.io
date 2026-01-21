@@ -120,7 +120,7 @@ const teamData = {
                 ]
             },
             {
-                "nick": "tt:@qwist1k",
+                "nick": "tt:@qwist1k [Замена]",
                 "kd": "0.80",
                 "k": 25,
                 "d": 3,
