@@ -1,4 +1,4 @@
-/* Updated: 24.01.2026, 01:07:38 */
+/* Updated: 24.01.2026, 01:13:43 */
 const teamData = {
     "LUXIA ESPORTS": {
         "points": 3,
@@ -20,14 +20,18 @@ const teamData = {
                     {
                         "name": "Победитель LaMajor Duo 2026",
                         "image": "https://i.imgur.com/J9FVACy.png"
+                    },
+                    {
+                        "name": "MVP  ТУРНИРА",
+                        "image": "https://i.imgur.com/26yGfAz.png"
                     }
                 ],
                 "winnings": "750"
             },
             {
                 "nick": "S1ence",
-                "kd": "1.46",
-                "k": 70,
+                "kd": "1.58",
+                "k": 76,
                 "d": 48,
                 "a": 1,
                 "firstName": "Альберт",
@@ -40,6 +44,10 @@ const teamData = {
                     {
                         "name": "Победитель LaMajor Duo 2026",
                         "image": "https://i.imgur.com/J9FVACy.png"
+                    },
+                    {
+                        "name": "ТОП-2 ТУРНИРА",
+                        "image": "https://i.imgur.com/SR1rxnS.png"
                     }
                 ],
                 "winnings": "500"
@@ -117,9 +125,9 @@ const teamData = {
             },
             {
                 "nick": "black boy",
-                "kd": "1.86",
+                "kd": "1.18",
                 "k": 13,
-                "d": 7,
+                "d": 11,
                 "a": 1,
                 "firstName": "Тимофей",
                 "lastName": "Аксентьев",
@@ -184,6 +192,10 @@ const teamData = {
                     {
                         "name": "Финалист LaMajor Duo 2026",
                         "image": "https://i.imgur.com/se3ojHj.png"
+                    },
+                    {
+                        "name": "ТОП-3 ТУРНИРА",
+                        "image": "https://i.imgur.com/xcQ1k2g.png"
                     }
                 ]
             },
