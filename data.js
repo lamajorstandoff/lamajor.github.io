@@ -1,44 +1,59 @@
-/* Updated: 22.01.2026, 00:02:01 */
+/* Updated: 24.01.2026, 01:07:38 */
 const teamData = {
     "LUXIA ESPORTS": {
-        "points": 2,
+        "points": 3,
         "logo": "https://tlab.pro/images/players/2593722f178141659e4d388ef14bde8e.png",
         "players": [
             {
                 "nick": "hakuji",
-                "kd": "2.15",
-                "k": 58,
-                "d": 27,
-                "a": 2,
+                "kd": "2.10",
+                "k": 107,
+                "d": 51,
+                "a": 9,
                 "firstName": "Андриян",
                 "lastName": "Егоров",
                 "age": "17",
                 "city": "Чебоксары",
                 "countryEmoji": "ru",
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19601/images/bKPGX97LdaCmvGRq20260104180338695aab7a72ee4.png",
-                "awards": [],
-                "winnings": ""
+                "awards": [
+                    {
+                        "name": "Победитель LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/J9FVACy.png"
+                    }
+                ],
+                "winnings": "750"
             },
             {
                 "nick": "S1ence",
-                "kd": "1.25",
-                "k": 35,
-                "d": 28,
-                "a": 3,
+                "kd": "1.46",
+                "k": 70,
+                "d": 48,
+                "a": 1,
                 "firstName": "Альберт",
                 "lastName": "Егоров",
                 "age": "15",
                 "city": "Чебоксары",
                 "countryEmoji": "ru",
                 "photo": "https://storage.yandexcloud.net/vitmeny/public/19843/images/ceFJGGneUqZpLxzb20260104155104695a8c6803c71.png",
-                "awards": [],
-                "winnings": "0"
+                "awards": [
+                    {
+                        "name": "Победитель LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/J9FVACy.png"
+                    }
+                ],
+                "winnings": "500"
             }
         ],
-        "wins": 2,
-        "status": "",
-        "awards": [],
-        "winnings": 0
+        "wins": 3,
+        "status": "winner",
+        "awards": [
+            {
+                "name": "Победитель LaMajor Duo 2026",
+                "image": "https://i.imgur.com/J9FVACy.png"
+            }
+        ],
+        "winnings": 1000
     },
     "Farmit": {
         "points": 0,
@@ -155,17 +170,22 @@ const teamData = {
         "players": [
             {
                 "nick": "Wago_120fps",
-                "kd": "1.45",
-                "k": 58,
-                "d": 40,
-                "a": 2,
+                "kd": "0.95",
+                "k": 75,
+                "d": 79,
+                "a": 4,
                 "firstName": "Влад",
                 "lastName": "Челюканов",
                 "age": "13",
                 "city": "Рязань",
                 "countryEmoji": "ru",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Финалист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/se3ojHj.png"
+                    }
+                ]
             },
             {
                 "nick": "f1tre",
@@ -179,25 +199,42 @@ const teamData = {
                 "city": "",
                 "countryEmoji": "eu",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Финалист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/se3ojHj.png"
+                    }
+                ]
             },
             {
                 "nick": "wonderl9ze [Замена]",
-                "kd": "1.72",
-                "k": 31,
-                "d": 18,
-                "a": 7,
+                "kd": "0.98",
+                "k": 58,
+                "d": 59,
+                "a": 4,
                 "firstName": "Аслан",
                 "lastName": "Кайхан",
                 "age": "13",
                 "city": "Рязань",
                 "countryEmoji": "ru",
                 "photo": "",
-                "awards": []
+                "awards": [
+                    {
+                        "name": "Финалист LaMajor Duo 2026",
+                        "image": "https://i.imgur.com/se3ojHj.png"
+                    }
+                ]
             }
         ],
         "wins": 2,
-        "awards": []
+        "awards": [
+            {
+                "name": "Финалист LaMajor Duo 2026",
+                "image": "https://i.imgur.com/se3ojHj.png"
+            }
+        ],
+        "status": "eliminated",
+        "losses": 1
     },
     "Domed Squad": {
         "points": 1,
@@ -368,9 +405,9 @@ const teamData = {
 
 const mvpData = {
     "nick": "hakuji",
-    "k": 58,
-    "d": 27,
-    "a": 2,
+    "k": 107,
+    "d": 51,
+    "a": 9,
     "firstName": "Андриян",
     "lastName": "Егоров",
     "age": "17",
@@ -392,5 +429,11 @@ let matchesData = [
         "team2": "XZease Team",
         "date": "22 янв",
         "time": "2:0"
+    },
+    {
+        "team1": "LUXIA ESPORTS",
+        "team2": "XZease Team",
+        "date": "23 янв.",
+        "time": "3:0"
     }
 ];
